@@ -1,220 +1,243 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+// Simplified Professional Vector Icons
+const IconLocation = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+);
+const IconEmail = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+);
+const IconPhone = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+);
 
 export default function ContactPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
   useEffect(() => {
     const els = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
-  const faqs = [
-    {
-      q: "Do you serve clients globally?",
-      a: "Yes, DigNep provides global IT infrastructure and networking solutions. While our headquarters are in Nepal, our team has the expertise to manage projects, remote deployments, and consulting for enterprise clients across international markets."
-    },
-    {
-      q: "How quickly can you respond to a network emergency?",
-      a: "Emergency response is our priority. For clients on our managed support plans, we offer a 1-hour response guarantee for critical network failures. Our Network Operations Center (NOC) operates 24/7 to monitor and resolve issues heartbeat-to-heartbeat."
-    },
-    {
-      q: "What is the cost of a typical network setup?",
-      a: "The cost depends entirely on the scope, scale, and complexity of your requirements. We offer competitive pricing starting from basic office setups to high-density enterprise data centers. Please contact us for a detailed, no-obligation quote tailored to your specific needs."
-    },
-    {
-      q: "Do you provide on-site training for corporate teams?",
-      a: "Yes, we specialize in high-impact corporate training for Networking (Cisco, MikroTik), Cybersecurity, and AI. We can deliver training at your premises or virtually, customized to your team's current skill levels and organizational goals."
-    }
-  ];
-
   return (
-    <main>
+    <main style={{ background: '#fff', color: '#034EA2' }}>
       <div className="page active" id="page-contact">
-        <div className="page-hero">
-          <div className="container">
-            <div className="page-hero-content">
-              <span className="section-tag" style={{background: "rgba(127,180,94,0.12)", color: "var(--green)", marginBottom: "16px", display: "inline-block"}}>Contact Us</span>
-              <h1>Let's Build Something<br /><span style={{color: "var(--green)"}}>Great Together</span></h1>
-              <p>Get in touch with our team for a free consultation, project quote, or any IT-related inquiry. We serve clients across global markets.</p>
-            </div>
-          </div>
-        </div>
-
-        <section style={{background: "var(--bg-navy)"}}>
-          <div className="container">
-            <div className="contact-grid">
-              <div className="contact-info">
-                <h3 style={{color: "var(--navy-dark)"}}>Get In Touch</h3>
-                <p>Our team of IT experts is ready to help. Reach out through any of the channels below, and we'll respond within 24 hours.</p>
-
-                <div className="contact-detail">
-                  <div className="contact-detail-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                  </div>
-                  <div className="contact-detail-text">
-                    <label>Our Office</label>
-                    <span style={{color: "var(--navy-dark)"}}>Dhangadhi -04, Nepal</span>
-                  </div>
-                </div>
-
-                <div className="contact-detail">
-                  <div className="contact-detail-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <div className="contact-detail-text">
-                    <label>Phone / WhatsApp</label>
-                    <a href="tel:9828031562" style={{color: "var(--blue)"}}>9828031562</a>
-                  </div>
-                </div>
-
-                <div className="contact-detail">
-                  <div className="contact-detail-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  </div>
-                  <div className="contact-detail-text">
-                    <label>Email Address</label>
-                    <a href="mailto:dignepaltechnologies@gmail.com" style={{color: "var(--blue)"}}>dignepaltechnologies@gmail.com</a>
-                  </div>
-                </div>
-
-                <div className="contact-detail">
-                  <div className="contact-detail-icon">🕒</div>
-                  <div className="contact-detail-text">
-                    <label>Business Hours</label>
-                    <span style={{color: "var(--navy-dark)"}}>Sunday – Friday: 9:00 AM – 6:00 PM</span>
-                    <span style={{color: "var(--text-muted)", fontSize: "13px"}}>Emergency support available 24/7</span>
-                  </div>
+        
+        {/* ── 1. ATTRACTIVE & VIBRANT HERO ── */}
+        <section className="cn-hero" style={{ 
+          padding: '180px 0 100px', 
+          position: 'relative', 
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #fff 0%, #f0f9ff 100%)'
+        }}>
+          {/* Vibrant Background Orbs */}
+          <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%)', filter: 'blur(60px)', borderRadius: '50%' }}></div>
+          <div style={{ position: 'absolute', bottom: '-100px', left: '-50px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%)', filter: 'blur(50px)', borderRadius: '50%' }}></div>
+          
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '80px', alignItems: 'center' }}>
+              <div className="fade-up">
+                <span style={{ 
+                  color: 'var(--blue)', 
+                  fontWeight: '800', 
+                  fontSize: '13px', 
+                  letterSpacing: '3px', 
+                  textTransform: 'uppercase', 
+                  marginBottom: '24px', 
+                  display: 'block' 
+                }}>Get In Touch</span>
+                
+                <h1 style={{ 
+                  fontSize: 'clamp(3rem, 7vw, 5rem)', 
+                  fontWeight: '900', 
+                  lineHeight: '1', 
+                  marginBottom: '32px', 
+                  letterSpacing: '-2px' 
+                }}>
+                  We’re Here to <br />
+                  <span style={{ color: 'var(--blue)' }}>Support Your</span> <br />
+                  Digital Growth.
+                </h1>
+                
+                <p style={{ 
+                  fontSize: '20px', 
+                  color: '#64748b', 
+                  lineHeight: '1.7', 
+                  maxWidth: '550px', 
+                  marginBottom: '48px' 
+                }}>
+                  Have a question or a project in mind? Our team of enterprise architects and engineers is ready to provide the technical guidance you need.
+                </p>
+                
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <a href="mailto:dignepaltechnologies@gmail.com" className="btn-primary" style={{ padding: '20px 40px', borderRadius: '12px', color: '#fff' }}>Start a Conversation</a>
+                  <a href="tel:9828031562" className="btn-secondary" style={{ padding: '20px 40px', borderRadius: '12px', background: '#fff' }}>Quick Call</a>
                 </div>
               </div>
-
-              <div className="contact-form-wrap" style={{background: "var(--bg-card)", borderColor: "rgba(15,23,42,0.06)"}}>
-                <h3 style={{color: "var(--navy-dark)"}}>Send Us a Message</h3>
-
-                <div id="contactForm">
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="fname" style={{color: "var(--navy-dark)"}}>First Name *</label>
-                      <input type="text" id="fname" placeholder="Ram" style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}} />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="lname" style={{color: "var(--navy-dark)"}}>Last Name *</label>
-                      <input type="text" id="lname" placeholder="Shrestha" style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}} />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email" style={{color: "var(--navy-dark)"}}>Email Address *</label>
-                    <input type="email" id="email" placeholder="ram@example.com" style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}} />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="phone" style={{color: "var(--navy-dark)"}}>Phone Number</label>
-                    <input type="tel" id="phone" placeholder="9828031562" style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}} />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="service" style={{color: "var(--navy-dark)"}}>Service Interested In</label>
-                    <select id="service" style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}}>
-                      <option value="" style={{background: "var(--white)"}}>Select a service...</option>
-                      <option style={{background: "var(--white)"}}>Data Centre Design & Engineering</option>
-                      <option style={{background: "var(--white)"}}>Server Hub Maintenance & Ops</option>
-                      <option style={{background: "var(--white)"}}>Cybersecurity</option>
-                      <option style={{background: "var(--white)"}}>AI Solutions</option>
-                      <option style={{background: "var(--white)"}}>Web Design & Development</option>
-                      <option style={{background: "var(--white)"}}>Mobile App Development</option>
-                      <option style={{background: "var(--white)"}}>Network Configuration & Maintenance</option>
-                      <option style={{background: "var(--white)"}}>IT Training & Certification</option>
-                      <option style={{background: "var(--white)"}}>IoT Services</option>
-                      <option style={{background: "var(--white)"}}>Software Development</option>
-                      <option style={{background: "var(--white)"}}>IT Consultancy</option>
-                      <option style={{background: "var(--white)"}}>Other</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="message" style={{color: "var(--navy-dark)"}}>Your Message *</label>
-                    <textarea id="message" placeholder="Tell us about your project, requirements, or questions..." style={{background: "rgba(15, 23, 42, 0.02)", border: "1px solid rgba(15, 23, 42, 0.08)", color: "var(--navy-dark)"}}></textarea>
-                  </div>
-
-                  <button className="form-submit" onClick={() => {}}>
-                    Send Message →
-                  </button>
+              
+              <div className="fade-up" style={{ position: 'relative' }}>
+                <div style={{ 
+                  position: 'relative', 
+                  zIndex: 2, 
+                  borderRadius: '32px', 
+                  overflow: 'hidden', 
+                  boxShadow: '0 30px 60px rgba(3, 78, 162, 0.1)' 
+                }}>
+                  <img src="/web-dev-workspace.png" alt="DigNep Office" style={{ width: '100%', display: 'block' }} />
+                  <div style={{ 
+                    position: 'absolute', 
+                    inset: 0, 
+                    background: 'linear-gradient(to bottom, transparent 60%, rgba(3, 78, 162, 0.4))' 
+                  }}></div>
+                </div>
+                {/* Floating Badge */}
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: '-20px', 
+                  right: '-20px', 
+                  background: 'var(--green)', 
+                  color: '#fff', 
+                  padding: '24px', 
+                  borderRadius: '24px', 
+                  fontWeight: '900', 
+                  boxShadow: '0 15px 30px rgba(16, 185, 129, 0.2)',
+                  zIndex: 3
+                }}>
+                  Active Support
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section style={{background: "var(--bg-navy)", padding: "80px 0"}}>
+        {/* ── 2. VIBRANT CONTACT CARDS ── */}
+        <section style={{ padding: '100px 0', background: '#fff' }}>
           <div className="container">
-            <div style={{textAlign: "center", marginBottom: "16px"}}>
-              <span className="section-tag">FAQ</span>
-            </div>
-            <h2 className="section-title" style={{textAlign: "center", maxWidth: "500px", margin: "0 auto 12px"}}>
-              Frequently Asked <span className="accent">Questions</span>
-            </h2>
-
-            <div style={{maxWidth: "800px", margin: "48px auto 0", display: "flex", flexDirection: "column", gap: "16px"}} id="faqList">
-              {faqs.map((faq, index) => (
-                <div 
-                  key={index} 
-                  className="faq-item" 
-                  style={{
-                    background: "var(--bg-card)", 
-                    border: "1px solid rgba(255,255,255,0.1)", 
-                    borderRadius: "var(--radius-md)", 
-                    overflow: "hidden",
-                    transition: "var(--transition)"
-                  }}
-                >
-                  <div 
-                    className="faq-q" 
-                    onClick={() => setActiveFaq(activeFaq === index ? null : index)}
-                    style={{
-                      padding: "20px 24px", 
-                      fontFamily: "var(--font-heading)", 
-                      fontWeight: "700", 
-                      fontSize: "15px", 
-                      color: activeFaq === index ? "var(--blue)" : "var(--navy-dark)", 
-                      cursor: "pointer", 
-                      display: "flex", 
-                      justifyContent: "space-between", 
-                      alignItems: "center"
-                    }}
-                  >
-                    {faq.q}
-                    <span style={{
-                      fontSize: "20px", 
-                      transition: "transform 0.3s ease",
-                      transform: activeFaq === index ? "rotate(45deg)" : "rotate(0deg)"
-                    }} className="faq-icon">+</span>
-                  </div>
-                  <div 
-                    className="faq-a" 
-                    style={{
-                      padding: activeFaq === index ? "0 24px 24px" : "0 24px", 
-                      fontSize: "14px", 
-                      color: "var(--text-body)", 
-                      lineHeight: "1.7", 
-                      maxHeight: activeFaq === index ? "200px" : "0",
-                      opacity: activeFaq === index ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 0.3s ease"
-                    }}
-                  >
-                    {faq.a}
-                  </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+              {[
+                { 
+                  t: 'Location', 
+                  d: 'Dhangadhi -04, Nepal', 
+                  i: <IconLocation />, 
+                  c: '#0EA5E9' 
+                },
+                { 
+                  t: 'Email Us', 
+                  d: 'dignepaltechnologies@gmail.com', 
+                  i: <IconEmail />, 
+                  c: '#10B981' 
+                },
+                { 
+                  t: 'Call Us', 
+                  d: '+977 9828031562', 
+                  i: <IconPhone />, 
+                  c: '#034EA2' 
+                }
+              ].map((card, i) => (
+                <div key={i} className="fade-up" style={{ 
+                  padding: '50px 40px', 
+                  background: '#f8fafc', 
+                  borderRadius: '32px', 
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                  border: '1px solid #f1f5f9'
+                }}>
+                  <div style={{ 
+                    width: '64px', 
+                    height: '64px', 
+                    background: '#fff', 
+                    borderRadius: '20px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    margin: '0 auto 24px',
+                    color: card.c,
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.05)'
+                  }}>{card.i}</div>
+                  <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px' }}>{card.t}</h3>
+                  <p style={{ color: '#64748b', fontWeight: '500' }}>{card.d}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* ── 3. MAP & DETAILS SECTION ── */}
+        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+          <div className="container">
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '80px', alignItems: 'center' }}>
+              <div className="fade-up" style={{ 
+                height: '400px', 
+                background: '#e2e8f0', 
+                borderRadius: '40px', 
+                position: 'relative', 
+                overflow: 'hidden',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.05)'
+              }}>
+                {/* Visual Map Placeholder */}
+                <div style={{ 
+                  position: 'absolute', 
+                  inset: 0, 
+                  background: 'url("/cyber-security.png") center/cover', 
+                  opacity: 0.15,
+                  filter: 'grayscale(1) brightness(1.2)'
+                }}></div>
+                <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', color: 'var(--blue)' }}>
+                  <IconLocation />
+                  <div style={{ fontWeight: '900', marginTop: '10px', fontSize: '18px' }}>DHANGADHI, NEPAL</div>
+                </div>
+              </div>
+              
+              <div className="fade-up">
+                <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '32px' }}>Working <span style={{ color: 'var(--blue)' }}>Hours</span></h2>
+                <div style={{ display: 'grid', gap: '24px' }}>
+                  {[
+                    { d: 'Sun - Fri', h: '9:00 AM - 6:00 PM' },
+                    { d: 'Saturday', h: 'Strategic Support Only' },
+                    { d: 'NOC Status', h: '24/7 Monitoring' }
+                  ].map((row, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid #e2e8f0' }}>
+                      <span style={{ fontWeight: '700', fontSize: '17px' }}>{row.d}</span>
+                      <span style={{ color: '#64748b' }}>{row.h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 4. CALL TO ACTION ── */}
+        <section style={{ padding: '120px 0', textAlign: 'center' }}>
+          <div className="container">
+            <div style={{ 
+              background: '#034EA2', 
+              borderRadius: '60px', 
+              padding: '100px 40px', 
+              color: '#fff',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div style={{ position: 'absolute', top: '-50px', left: '-50px', width: '300px', height: '300px', background: 'rgba(255,255,255,0.05)', borderRadius: '50%' }}></div>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', marginBottom: '24px' }}>Ready to Scale?</h2>
+              <p style={{ fontSize: '20px', opacity: 0.8, marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px' }}>
+                Join hundreds of businesses that trust DigNep for their mission-critical IT infrastructure.
+              </p>
+              <a href="mailto:dignepaltechnologies@gmail.com" className="btn-primary" style={{ 
+                background: '#fff', 
+                color: '#034EA2', 
+                padding: '20px 60px', 
+                borderRadius: '100px', 
+                fontWeight: '900',
+                border: 'none'
+              }}>Contact Us Now →</a>
+            </div>
+          </div>
+        </section>
+
       </div>
     </main>
   );

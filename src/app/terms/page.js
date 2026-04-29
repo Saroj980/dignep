@@ -2,6 +2,32 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 
+// PROFESSIONAL VECTOR ICONS
+const IconAgreement = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+);
+const IconTools = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+);
+const IconScale = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 16 2 6"/><path d="m2 16 14-10"/><path d="M21 21H3"/><path d="M16 16a5 5 0 0 0 5 5h0a5 5 0 0 0 5-5"/><path d="M2 16a5 5 0 0 0-5 5h0a5 5 0 0 0-5-5"/></svg>
+);
+const IconLock = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+);
+const IconWarning = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4.11 21h15.78a2 2 0 0 0 1.84-3z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+);
+const IconFlag = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+);
+const IconRefresh = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+);
+const IconSmartphone = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+);
+
 export default function TermsPage() {
   useEffect(() => {
     const els = document.querySelectorAll('.fade-up');
@@ -11,46 +37,47 @@ export default function TermsPage() {
       });
     }, { threshold: 0.1 });
     els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   const sections = [
     {
-      icon: "🤝",
+      icon: <IconAgreement />,
       title: "1. Agreement to Terms",
       content: "By accessing and using the DigNep website and services, you agree to be bound by these Terms. If you do not agree, please do not use our platform."
     },
     {
-      icon: "🛠️",
+      icon: <IconTools />,
       title: "2. Use of Services",
       content: "You agree to use our services only for lawful purposes. You are responsible for maintaining the confidentiality of any account details used on our site."
     },
     {
-      icon: "⚖️",
+      icon: <IconScale />,
       title: "3. Intellectual Property",
       content: "All content on this website, including text, graphics, and logos, is the property of DigNep and is protected by international copyright laws."
     },
     {
-      icon: "🚫",
+      icon: <IconLock />,
       title: "4. Limitation of Liability",
       content: "DigNep will not be liable for any damages arising from the use of this site or from any services included on or otherwise made available through this site."
     },
     {
-      icon: "⚠️",
+      icon: <IconWarning />,
       title: "5. Termination",
       content: "We reserve the right to suspend your access to our services for any conduct that we believe violates these Terms or is harmful to our community."
     },
     {
-      icon: "🇳🇵",
+      icon: <IconFlag />,
       title: "6. Governing Law",
       content: "These Terms shall be governed by and construed in accordance with the laws of Nepal, without regard to its conflict of law principles."
     },
     {
-      icon: "🔄",
+      icon: <IconRefresh />,
       title: "7. Updates to Terms",
       content: "We may revise these Terms at any time by updating this page. Your continued use of the site following changes means you accept those revisions."
     },
     {
-      icon: "📲",
+      icon: <IconSmartphone />,
       title: "8. Contact Information",
       content: "For any questions regarding these Terms, please contact our legal department at dignepaltechnologies@gmail.com."
     }
@@ -58,7 +85,6 @@ export default function TermsPage() {
 
   return (
     <main style={{backgroundColor: "var(--bg-navy)"}}>
-      {/* Light Theme Hero - Mirrored from Homepage */}
       <div className="hero" style={{
         minHeight: "auto",
         padding: "180px 0 100px", 
@@ -155,7 +181,7 @@ export default function TermsPage() {
                   display: "flex", 
                   alignItems: "center", 
                   justifyContent: "center",
-                  fontSize: "28px"
+                  color: "var(--green)"
                 }}>
                   {s.icon}
                 </div>
