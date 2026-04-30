@@ -41,53 +41,51 @@ export default function NetworkingServicePage() {
     <main style={{background: '#fff', color: '#034EA2'}}>
       <div className="page active" id="page-service-networking">
         
-        {/* ── 1. SCHEMATIC HERO (LIGHT) ── */}
-        <section className="nt-hero" style={{ padding: '180px 0 100px', position: 'relative', overflow: 'hidden', background: 'radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 50%)', borderBottom: '1px solid #e2e8f0' }}>
-          <div className="nt-grid-bg" style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(#0EA5E9 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.05 }}></div>
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
-              <div className="fade-up">
-                <span style={{ color: 'var(--blue)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', border: '1px solid var(--blue)', padding: '4px 12px', borderRadius: '4px' }}>Backbone Infrastructure</span>
-                <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', lineHeight: '1', margin: '24px 0', color: '#034EA2' }}>
-                  Resilient <span style={{ color: 'var(--blue)' }}>Network</span><br />Architectures.
-                </h1>
-                <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '500px', lineHeight: '1.6' }}>
-                  We don't just "install" networks—we engineer high-performance data backbones that ensure zero-latency connectivity for global enterprises.
-                </p>
-                <div style={{ marginTop: '40px', display: 'flex', gap: '16px' }}>
-                  <Link href="/contact" className="btn-primary" style={{ background: '#034EA2', color: '#fff', borderRadius: '12px' }}>Engineer My Network →</Link>
-                  <a href="#topology" style={{ color: '#034EA2', textDecoration: 'none', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #cbd5e1' }}>View Topology</a>
-                </div>
+        {/* ── 1. SCHEMATIC HERO ── */}
+        <section className="nt-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
+          <div className="container sp-hero-inner grid-split-hero">
+            <div className="fade-up text-left">
+              <span className="section-tag why-tag mb-16">Backbone Infrastructure</span>
+              <h1 className="sp-hero-title">
+                Resilient <span className="highlight">Network</span><br />Architectures.
+              </h1>
+              <p className="sp-hero-desc">
+                We don't just "install" networks—we engineer high-performance data backbones that ensure zero-latency connectivity for global enterprises.
+              </p>
+              <div className="hero-actions">
+                <Link href="/contact" className="btn-primary">Engineer My Network →</Link>
+                <a href="#topology" className="btn-secondary">View Topology</a>
               </div>
-              <div className="fade-in-right nt-visual" style={{ position: 'relative' }}>
-                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '30px', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
-                  <img src="/server-rack.png" alt="Networking" style={{ width: '100%', borderRadius: '12px' }} />
-                </div>
-                <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', background: '#fff', border: '1px solid var(--blue)', padding: '15px 25px', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 10 }}>
-                  <div style={{ fontSize: '10px', color: 'var(--blue)', fontWeight: '800' }}>STATUS: OPTIMAL</div>
-                  <div style={{ fontSize: '20px', fontWeight: '900', color: '#034EA2' }}>100 Gbps</div>
-                </div>
+            </div>
+            <div className="fade-in-right sp-hero-visual">
+              <div className="sp-hero-img-frame">
+                <img src="/server-rack.png" alt="Networking" className="sp-hero-img" />
+              </div>
+              <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', background: '#fff', border: '1px solid var(--blue)', padding: '15px 25px', borderRadius: '8px', boxShadow: 'var(--shadow-md)', zIndex: 10 }}>
+                <div style={{ fontSize: '10px', color: 'var(--blue)', fontWeight: '800' }}>STATUS: OPTIMAL</div>
+                <div style={{ fontSize: '20px', fontWeight: '900', color: 'var(--navy-dark)' }}>100 Gbps</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── 2. TECHNICAL SPECIFICATIONS ── */}
-        <div style={{ background: '#f8fafc', padding: '30px 0', borderBottom: '1px solid #e2e8f0' }}>
-          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', opacity: 0.6 }}>
+        <div style={{ background: 'var(--bg-navy)', padding: '24px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container" style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', opacity: 0.6 }}>
             {['Layer 3 Switching', 'SD-WAN Integration', 'WiFi 6E Ready', 'BGP Routing', 'MPLS Support', 'Zero Trust Access'].map((spec, i) => (
-              <span key={i} style={{ fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', color: '#64748b' }}>// {spec}</span>
+              <span key={i} style={{ fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)' }}>// {spec}</span>
             ))}
           </div>
         </div>
 
-        {/* ── 3. INFRASTRUCTURE PILLARS (Blueprint Mode) ── */}
+        {/* ── 3. INFRASTRUCTURE PILLARS ── */}
         <section id="topology" style={{ padding: '100px 0' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '80px' }}>
-              <div>
-                <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '24px', color: '#034EA2' }}>The <span style={{ color: 'var(--blue)' }}>Blueprint</span> for Enterprise Speed.</h2>
-                <p style={{ color: '#64748b', lineHeight: '1.7' }}>
+            <div className="grid-split-hero">
+              <div className="text-left">
+                <h2 className="section-title" style={{ textAlign: 'left' }}>The <span className="highlight">Blueprint</span> for Enterprise Speed.</h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0' }}>
                   Our network designs are not off-the-shelf. We create custom topologies that account for every rack, floor, and remote office in your organization.
                 </p>
                 <div style={{ marginTop: '40px' }}>
@@ -97,15 +95,15 @@ export default function NetworkingServicePage() {
                     { t: 'Secure Edge Computing', d: 'Bringing speed to the perimeter of your network.' }
                   ].map((item, i) => (
                     <div key={i} style={{ marginBottom: '30px', borderLeft: '2px solid var(--blue)', paddingLeft: '20px' }}>
-                      <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: '#034EA2' }}>{item.t}</h4>
-                      <p style={{ fontSize: '14px', color: '#64748b' }}>{item.d}</p>
+                      <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: 'var(--navy-dark)' }}>{item.t}</h4>
+                      <p style={{ fontSize: '14px', color: 'var(--text-body)' }}>{item.d}</p>
                     </div>
                   ))}
                 </div>
               </div>
               
               <div className="nt-capability-list">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+                <div className="grid-2-cols">
                   {[
                     { i: <IconCabling />, t: 'Structured Cabling', d: 'High-density fiber & Cat6A deployments for data centers.' },
                     { i: <IconWiFi />, t: 'Enterprise WiFi', desc: 'Secure, seamless roaming with AI-driven radio management.' },
@@ -114,10 +112,10 @@ export default function NetworkingServicePage() {
                     { i: <IconTools />, t: 'Hardware Refresh', desc: 'Lifecycle management for routers, switches, and APs.' },
                     { i: <IconSolution />, t: 'IP Management', desc: 'IPv6 transition strategies and IPAM automation.' }
                   ].map((cap, i) => (
-                    <div key={i} className="fade-up" style={{ background: '#fff', border: '1px solid #f1f5f9', padding: '30px', borderRadius: '16px', boxShadow: '0 4px 15px rgba(0,0,0,0.03)', transition: 'all 0.3s ease' }}>
+                    <div key={i} className="fade-up" style={{ background: '#fff', border: '1px solid rgba(15,23,42,0.06)', padding: '30px', borderRadius: '16px', boxShadow: 'var(--shadow-sm)', transition: 'all 0.3s ease' }}>
                       <div style={{ color: 'var(--blue)', marginBottom: '16px' }}>{cap.i}</div>
-                      <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '12px', color: '#034EA2' }}>{cap.t}</h3>
-                      <p style={{ fontSize: '13px', color: '#64748b', lineHeight: '1.5' }}>{cap.d || cap.desc}</p>
+                      <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '12px', color: 'var(--navy-dark)' }}>{cap.t}</h3>
+                      <p style={{ fontSize: '13px', color: 'var(--text-body)', lineHeight: '1.5' }}>{cap.d || cap.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -126,25 +124,24 @@ export default function NetworkingServicePage() {
           </div>
         </section>
 
-        {/* ── 4. DEPLOYMENT TIMELINE (LIGHT) ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        {/* ── 4. DEPLOYMENT TIMELINE ── */}
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <h2 className="text-center" style={{ marginBottom: '60px', color: '#034EA2' }}>Deployment <span style={{ color: 'var(--blue)' }}>Lifecycle</span></h2>
-            <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '25px', left: '0', right: '0', height: '2px', background: '#e2e8f0', zIndex: 1 }}></div>
+            <h2 className="section-title text-center" style={{ marginBottom: '60px' }}>Deployment <span className="highlight">Lifecycle</span></h2>
+            <div className="grid-4-cols">
               {[
                 { s: '01', t: 'Site Audit', d: 'RF surveys & rack analysis.', i: <IconNOC /> },
                 { s: '02', t: 'Topology Design', d: 'Logical & physical schematics.', i: <IconSolution /> },
                 { s: '03', t: 'Execution', d: 'Precision cabling & config.', i: <IconTools /> },
                 { s: '04', t: 'Validation', d: 'Stress testing & certification.', i: <IconZap /> }
               ].map((step, i) => (
-                <div key={i} className="process-step fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
+                <div key={i} className="process-step fade-up" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
                   <div className="step-num">{step.s}</div>
-                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                     <span style={{ color: 'var(--blue)' }}>{step.i}</span>
                     {step.t}
                   </h4>
-                  <p className="text-center" style={{ fontSize: '13px', color: '#64748b' }}>{step.d}</p>
+                  <p className="text-center" style={{ fontSize: '13px', color: 'var(--text-body)' }}>{step.d}</p>
                 </div>
               ))}
             </div>
@@ -152,14 +149,14 @@ export default function NetworkingServicePage() {
         </section>
 
         {/* ── 5. CLEAN CTA ── */}
-        <section style={{ padding: '120px 0', textAlign: 'center' }}>
+        <section className="cta-section" style={{ padding: '120px 0' }}>
           <div className="container">
-            <div style={{ maxWidth: '800px', margin: '0 auto', background: '#034EA2', padding: '80px 40px', borderRadius: '40px', color: '#fff' }}>
-              <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '20px' }}>Eliminate <span style={{ color: 'var(--blue-light)' }}>Latency.</span></h2>
+            <div className="cta-inner" style={{ maxWidth: '800px', background: 'var(--navy)', padding: '80px 40px', borderRadius: '40px', color: '#fff' }}>
+              <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '20px', color: '#fff' }}>Eliminate <span style={{ color: 'var(--blue-light)' }}>Latency.</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', fontSize: '18px' }}>
                 Your business only moves as fast as your network. Let's build a faster one together.
               </p>
-              <Link href="/contact" className="btn-primary" style={{ background: '#fff', color: '#034EA2', padding: '18px 40px', fontSize: '18px', borderRadius: '12px' }}>Start Infrastructure Audit →</Link>
+              <Link href="/contact" className="btn-primary" style={{ background: '#fff', color: 'var(--navy)', padding: '18px 40px', fontSize: '18px', borderRadius: '12px' }}>Start Infrastructure Audit →</Link>
             </div>
           </div>
         </section>

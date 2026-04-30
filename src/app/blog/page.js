@@ -18,48 +18,24 @@ export default function BlogListingPage() {
       <div className="page active" id="page-blog">
         
         {/* ── 1. BLOG HERO ── */}
-        <section style={{ 
-          padding: '200px 0 100px', 
-          background: 'radial-gradient(circle at 50% -20%, #f0f9ff 0%, #ffffff 60%)',
-          textAlign: 'center'
-        }}>
-          <div className="container">
-            <span style={{ 
-              color: 'var(--blue)', 
-              fontWeight: '800', 
-              fontSize: '13px', 
-              letterSpacing: '3px', 
-              textTransform: 'uppercase', 
-              marginBottom: '24px', 
-              display: 'block' 
-            }}>DigNep Perspectives</span>
-            <h1 style={{ 
-              fontSize: 'clamp(3rem, 7vw, 5rem)', 
-              fontWeight: '900', 
-              color: '#034EA2', 
-              lineHeight: '1', 
-              marginBottom: '32px', 
-              letterSpacing: '-2px' 
-            }}>
-              Insights on <span style={{ color: 'var(--blue)' }}>Infrastructure</span><br />
+        <section className="sp-hero" style={{ background: 'var(--bg-navy)' }}>
+          <div className="sp-hero-bg-grid" />
+          <div className="container" style={{ textAlign: 'center' }}>
+            <span className="section-tag why-tag mb-16" style={{ margin: '0 auto 24px' }}>DigNep Perspectives</span>
+            <h1 className="sp-hero-title">
+              Insights on <span className="highlight">Infrastructure</span><br />
               and Global IT Standards.
             </h1>
-            <p style={{ 
-              fontSize: '20px', 
-              color: '#64748b', 
-              lineHeight: '1.7', 
-              maxWidth: '700px', 
-              margin: '0 auto' 
-            }}>
+            <p className="sp-hero-desc" style={{ margin: '0 auto' }}>
               Deep dives into networking protocols, cybersecurity threats, AI implementation, and the future of enterprise data hubs.
             </p>
           </div>
         </section>
 
         {/* ── 2. BLOG GRID ── */}
-        <section style={{ padding: '80px 0 140px' }}>
+        <section style={{ padding: '80px 0 140px', background: 'var(--white)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div className="grid-3-cols">
               {blogs.map((blog, i) => (
                 <div key={i} className="fade-up">
                   <BlogCard blog={blog} />

@@ -37,36 +37,37 @@ export default function AboutPage() {
     <main>
       <div className="page active" id="page-about">
         
-        {/* ── 1. UNIQUE ABOUT HERO: SPLIT IMAGE LAYOUT ── */}
-        <section className="about-hero-new" style={{ padding: '180px 0 100px', background: '#fff', position: 'relative', overflow: 'hidden' }}>
+        {/* ── 1. UNIQUE ABOUT HERO ── */}
+        <section className="about-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '80px', alignItems: 'center' }}>
-              <div className="fade-up">
+            <div className="grid-split-hero">
+              <div className="fade-up text-left">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                  <span style={{ width: '40px', height: '2px', background: 'var(--blue)' }}></span>
-                  <span style={{ color: 'var(--blue)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '13px' }}>The DigNep Legacy</span>
+                   <span style={{ width: '40px', height: '2px', background: 'var(--blue)' }}></span>
+                   <span style={{ color: 'var(--blue)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '13px' }}>The DigNep Legacy</span>
                 </div>
-                <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: '900', color: '#034EA2', lineHeight: '1.1', marginBottom: '30px', letterSpacing: '-2px' }}>
-                  Engineering the <br /><span style={{ color: 'var(--blue)' }}>Digital Backbone</span> of Nepal & Beyond.
+                <h1 className="sp-hero-title">
+                  Engineering the <br /><span className="highlight">Digital Backbone</span> of Nepal & Beyond.
                 </h1>
-                <p style={{ fontSize: '19px', color: '#64748b', lineHeight: '1.75', marginBottom: '40px', maxWidth: '600px' }}>
+                <p className="sp-hero-desc">
                   Dignep is a networking and IT solutions company dedicated to building secure, scalable, and high-performance digital infrastructures. We partner with businesses to design, optimize, and manage technology environments that drive growth.
                 </p>
                 <div style={{ display: 'flex', gap: '30px' }}>
                   <div>
-                    <div style={{ fontSize: '28px', fontWeight: '900', color: '#034EA2' }}>10+</div>
+                    <div style={{ fontSize: '28px', fontWeight: '900', color: 'var(--navy-dark)' }}>10+</div>
                     <div style={{ fontSize: '12px', color: 'var(--blue)', fontWeight: '700', textTransform: 'uppercase' }}>Years Experience</div>
                   </div>
-                  <div style={{ width: '1px', height: '40px', background: '#e2e8f0' }}></div>
+                  <div style={{ width: '1px', height: '40px', background: 'var(--light-gray)' }}></div>
                   <div>
-                    <div style={{ fontSize: '28px', fontWeight: '900', color: '#034EA2' }}>500+</div>
+                    <div style={{ fontSize: '28px', fontWeight: '900', color: 'var(--navy-dark)' }}>500+</div>
                     <div style={{ fontSize: '12px', color: 'var(--blue)', fontWeight: '700', textTransform: 'uppercase' }}>Projects Done</div>
                   </div>
                 </div>
               </div>
-              <div className="fade-up" style={{ position: 'relative' }}>
-                <div style={{ position: 'relative', zIndex: 2, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(3, 78, 162, 0.15)' }}>
-                  <img src="/about-workspace.png" alt="DigNep Engineering" style={{ width: '100%', display: 'block' }} />
+              <div className="fade-up sp-hero-visual">
+                <div className="sp-hero-img-frame">
+                  <img src="/about-workspace.png" alt="DigNep Engineering" className="sp-hero-img" />
                 </div>
                 <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '100px', height: '100px', background: 'var(--blue)', opacity: 0.1, borderRadius: '20px', zIndex: 1 }}></div>
                 <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '200px', height: '200px', border: '2px solid var(--blue)', opacity: 0.05, borderRadius: '50%', zIndex: 1 }}></div>
@@ -76,30 +77,30 @@ export default function AboutPage() {
         </section>
 
         {/* ── 2. OUR STORY SECTION ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '100px', alignItems: 'center' }}>
+            <div className="grid-2-cols" style={{ alignItems: 'center' }}>
               <div className="fade-up">
-                <img src="/server-rack.png" alt="Infrastructure" style={{ width: '100%', borderRadius: '32px', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }} />
+                <img src="/server-rack.png" alt="Infrastructure" style={{ width: '100%', borderRadius: '32px', boxShadow: 'var(--shadow-md)' }} />
               </div>
-              <div className="fade-up">
-                <span style={{ color: 'var(--blue)', fontWeight: '800', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>Our Vision</span>
-                <h2 style={{ fontSize: '36px', fontWeight: '900', color: '#034EA2', margin: '20px 0' }}>The Standard in <span style={{ color: 'var(--blue)' }}>Enterprise IT</span></h2>
-                <p style={{ color: '#64748b', lineHeight: '1.8', fontSize: '16px', marginBottom: '30px' }}>
+              <div className="fade-up text-left">
+                <span className="section-tag why-tag">Our Vision</span>
+                <h2 className="section-title why-title" style={{ textAlign: 'left', margin: '20px 0' }}>The Standard in <span className="highlight">Enterprise IT</span></h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0', fontSize: '16px', marginBottom: '30px' }}>
                   Founded with a vision to bridge the gap between global technology standards and local infrastructure needs, DigNep has evolved into a powerhouse of IT engineering. We don't just provide services; we build long-term partnerships.
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                <div className="grid-2-cols" style={{ gap: '30px' }}>
                   <div>
-                    <h4 style={{ color: '#034EA2', fontWeight: '800', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h4 style={{ color: 'var(--navy-dark)', fontWeight: '800', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: 'var(--blue)' }}><IconMission /></span> Mission
                     </h4>
-                    <p style={{ fontSize: '14px', color: '#64748b' }}>To empower businesses with resilient, scalable, and secure IT infrastructure.</p>
+                    <p style={{ fontSize: '14px', color: 'var(--text-body)' }}>To empower businesses with resilient, scalable, and secure IT infrastructure.</p>
                   </div>
                   <div>
-                    <h4 style={{ color: '#034EA2', fontWeight: '800', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h4 style={{ color: 'var(--navy-dark)', fontWeight: '800', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: 'var(--blue)' }}><IconVision /></span> Vision
                     </h4>
-                    <p style={{ fontSize: '14px', color: '#64748b' }}>To be the world's most trusted partner for mission-critical solutions.</p>
+                    <p style={{ fontSize: '14px', color: 'var(--text-body)' }}>To be the world's most trusted partner for mission-critical solutions.</p>
                   </div>
                 </div>
               </div>
@@ -108,21 +109,21 @@ export default function AboutPage() {
         </section>
 
         {/* ── 3. CORE VALUES ── */}
-        <section style={{ padding: '120px 0', background: '#fff' }}>
+        <section style={{ padding: '120px 0', background: 'var(--white)' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-              <h2 style={{ fontSize: '40px', fontWeight: '900', color: '#034EA2' }}>Our Core <span style={{ color: 'var(--blue)' }}>Principles</span></h2>
+              <h2 className="section-title">Our Core <span className="highlight">Principles</span></h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div className="grid-3-cols">
               {[
                 { t: 'Innovation', d: 'Constantly evolving with the latest global standards and protocols.', i: <IconInnovation /> },
                 { t: 'Integrity', d: 'Honest partnerships built on transparency and technical truth.', i: <IconIntegrity /> },
                 { t: 'Impact', d: 'Delivering results that measurable grow our clients business.', i: <IconImpact /> }
               ].map((val, i) => (
-                <div key={i} className="fade-up" style={{ padding: '40px', background: '#f8fafc', borderRadius: '24px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease' }}>
+                <div key={i} className="fade-up" style={{ padding: '40px', background: 'var(--bg-navy)', borderRadius: '24px', border: '1px solid rgba(15,23,42,0.06)', transition: 'all 0.3s ease' }}>
                   <div style={{ color: 'var(--blue)', marginBottom: '20px' }}>{val.i}</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#034EA2', marginBottom: '15px' }}>{val.t}</h3>
-                  <p style={{ color: '#64748b', lineHeight: '1.6' }}>{val.d}</p>
+                  <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '15px' }}>{val.t}</h3>
+                  <p style={{ color: 'var(--text-body)', lineHeight: '1.6' }}>{val.d}</p>
                 </div>
               ))}
             </div>
@@ -130,14 +131,14 @@ export default function AboutPage() {
         </section>
 
         {/* ── 4. TEAM SECTION ── */}
-        <section className="team-section" style={{ padding: '100px 0', background: '#034EA2', color: '#fff' }}>
+        <section className="team-section" style={{ padding: '100px 0', background: 'var(--navy)', color: '#fff' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '40px', fontWeight: '900' }}>The Experts Behind <span style={{ color: 'var(--blue-light)' }}>DigNep</span></h2>
+              <h2 className="section-title" style={{ color: '#fff' }}>The Experts Behind <span style={{ color: 'var(--blue-light)' }}>DigNep</span></h2>
               <p style={{ opacity: 0.8, maxWidth: '600px', margin: '20px auto 0' }}>A passionate team of certified engineers, developers, and consultants dedicated to your success.</p>
             </div>
 
-            <div className="team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+            <div className="grid-3-cols">
               {[
                 { n: 'Network Team', r: 'CCNA & MikroTik Certified', c: 'var(--blue)' },
                 { n: 'Dev Team', r: 'Full-Stack Experts', c: 'var(--green)' },
@@ -145,7 +146,7 @@ export default function AboutPage() {
               ].map((member, i) => (
                 <div key={i} className="fade-up" style={{ background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
                   <div style={{ width: '80px', height: '80px', background: member.c, borderRadius: '50%', margin: '0 auto 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '900', fontSize: '24px' }}>DN</div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '8px' }}>{member.n}</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '8px', color: '#fff' }}>{member.n}</h3>
                   <div style={{ fontSize: '13px', color: 'var(--blue-light)', fontWeight: '700', marginBottom: '16px' }}>{member.r}</div>
                   <p style={{ fontSize: '14px', opacity: 0.7 }}>Dedicated specialists delivering world-class engineering solutions.</p>
                 </div>
@@ -157,10 +158,10 @@ export default function AboutPage() {
         {/* ── 5. CTA ── */}
         <section style={{ padding: '120px 0', textAlign: 'center' }}>
           <div className="container">
-            <h2 style={{ fontSize: '45px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>Join the <span style={{ color: 'var(--blue)' }}>IT Revolution.</span></h2>
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-              <a href="/contact" className="btn-primary" style={{ padding: '20px 40px', borderRadius: '12px' }}>Start a Project →</a>
-              <a href="/training" className="btn-secondary" style={{ padding: '20px 40px', borderRadius: '12px' }}>View Training</a>
+            <h2 className="section-title">Join the <span className="highlight">IT Revolution.</span></h2>
+            <div className="hero-actions" style={{ justifyContent: 'center' }}>
+              <a href="/contact" className="btn-primary">Start a Project →</a>
+              <a href="/training" className="btn-secondary">View Training</a>
             </div>
           </div>
         </section>

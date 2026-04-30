@@ -38,53 +38,51 @@ export default function AIServicePage() {
     <main style={{background: '#fff', color: '#034EA2'}}>
       <div className="page active" id="page-service-ai">
         
-        {/* ── 1. SCHEMATIC HERO (MATCHES THEME) ── */}
-        <section className="ai-hero" style={{ padding: '180px 0 100px', position: 'relative', overflow: 'hidden', background: 'radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 50%)', borderBottom: '1px solid #e2e8f0' }}>
-          <div className="ai-grid-bg" style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(#007A3D 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.05 }}></div>
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
-              <div className="fade-up">
-                <span style={{ color: '#007A3D', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', border: '1px solid #007A3D', padding: '4px 12px', borderRadius: '4px' }}>Neural Intelligence</span>
-                <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', lineHeight: '1', margin: '24px 0', color: '#034EA2' }}>
-                  The Future is <span style={{ color: '#007A3D' }}>Autonomous</span><br />Intelligence.
-                </h1>
-                <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '500px', lineHeight: '1.6' }}>
-                  We engineer production-grade machine learning systems that transform raw enterprise data into mission-critical predictive insights.
-                </p>
-                <div style={{ marginTop: '40px', display: 'flex', gap: '16px' }}>
-                  <Link href="/contact" className="btn-primary" style={{ background: '#034EA2', color: '#fff', borderRadius: '12px' }}>Build My AI Model →</Link>
-                  <a href="#solutions" style={{ color: '#034EA2', textDecoration: 'none', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #cbd5e1' }}>Explore Solutions</a>
-                </div>
+        {/* ── 1. SCHEMATIC HERO ── */}
+        <section className="ai-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
+          <div className="container sp-hero-inner grid-split-hero">
+            <div className="fade-up">
+              <span className="section-tag why-tag mb-16">Neural Intelligence</span>
+              <h1 className="sp-hero-title">
+                The Future is <span className="highlight">Autonomous</span><br />Intelligence.
+              </h1>
+              <p className="sp-hero-desc">
+                We engineer production-grade machine learning systems that transform raw enterprise data into mission-critical predictive insights.
+              </p>
+              <div className="hero-actions">
+                <Link href="/contact" className="btn-primary">Build My AI Model →</Link>
+                <a href="#solutions" className="btn-secondary">Explore Solutions</a>
               </div>
-              <div className="fade-in-right ai-visual" style={{ position: 'relative' }}>
-                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '30px', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
-                  <img src="/ai-data-hub.png" alt="AI Intelligence" style={{ width: '100%', borderRadius: '12px' }} />
-                </div>
-                <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', background: '#fff', border: '1px solid #007A3D', padding: '15px 25px', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 10 }}>
-                  <div style={{ fontSize: '10px', color: '#007A3D', fontWeight: '800' }}>INFERENCE: ACTIVE</div>
-                  <div style={{ fontSize: '20px', fontWeight: '900', color: '#034EA2' }}>99.9% Accuracy</div>
-                </div>
+            </div>
+            <div className="fade-in-right sp-hero-visual">
+              <div className="sp-hero-img-frame">
+                <img src="/ai-data-hub.png" alt="AI Intelligence" className="sp-hero-img" />
+              </div>
+              <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', background: '#fff', border: '1px solid var(--green)', padding: '15px 25px', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 10 }}>
+                <div style={{ fontSize: '10px', color: 'var(--green-dark)', fontWeight: '800' }}>INFERENCE: ACTIVE</div>
+                <div style={{ fontSize: '20px', fontWeight: '900', color: 'var(--navy-dark)' }}>99.9% Accuracy</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── 2. TECHNICAL SPECIFICATIONS ── */}
-        <div style={{ background: '#f8fafc', padding: '30px 0', borderBottom: '1px solid #e2e8f0' }}>
-          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', opacity: 0.6 }}>
+        <div style={{ background: 'var(--bg-navy)', padding: '24px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container" style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', opacity: 0.6 }}>
             {['PyTorch Ready', 'Edge Inference', 'Custom LLMs', 'Computer Vision', 'Anomaly Detection', 'TensorFlow Native'].map((spec, i) => (
-              <span key={i} style={{ fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', color: '#64748b' }}>// {spec}</span>
+              <span key={i} style={{ fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)' }}>// {spec}</span>
             ))}
           </div>
         </div>
 
-        {/* ── 3. AI PILLARS (Consistent with Service Theme) ── */}
+        {/* ── 3. AI PILLARS ── */}
         <section id="solutions" style={{ padding: '100px 0' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '80px' }}>
-              <div>
-                <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '24px', color: '#034EA2' }}>Building <span style={{ color: '#007A3D' }}>Moats</span> with Data Intelligence.</h2>
-                <p style={{ color: '#64748b', lineHeight: '1.7' }}>
+            <div className="grid-split-hero">
+              <div className="text-left">
+                <h2 className="section-title" style={{ textAlign: 'left' }}>Building <span className="highlight">Moats</span> with Data Intelligence.</h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0' }}>
                   Our AI solutions are not black boxes. We provide transparent, scalable intelligence frameworks that integrate directly into your existing infrastructure.
                 </p>
                 <div style={{ marginTop: '40px' }}>
@@ -93,16 +91,16 @@ export default function AIServicePage() {
                     { t: 'Enterprise Knowledge', d: 'Custom internal LLMs that understand your specific industry data.' },
                     { t: 'Cognitive Automation', d: 'Replacing manual workflows with self-correcting AI loops.' }
                   ].map((item, i) => (
-                    <div key={i} style={{ marginBottom: '30px', borderLeft: '2px solid #007A3D', paddingLeft: '20px' }}>
-                      <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: '#034EA2' }}>{item.t}</h4>
-                      <p style={{ fontSize: '14px', color: '#64748b' }}>{item.d}</p>
+                    <div key={i} style={{ marginBottom: '30px', borderLeft: '2px solid var(--green)', paddingLeft: '20px' }}>
+                      <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: 'var(--navy-dark)' }}>{item.t}</h4>
+                      <p style={{ fontSize: '14px', color: 'var(--text-body)' }}>{item.d}</p>
                     </div>
                   ))}
                 </div>
               </div>
               
               <div className="ai-capability-list">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+                <div className="grid-2-cols">
                   {[
                     { i: <IconBrain />, t: 'Predictive Analytics', desc: 'Transform historical telemetry into proactive operational signals.' },
                     { i: <IconEye />, t: 'Computer Vision', desc: 'Automate visual inspection and security with real-time neural optic processing.' },
@@ -111,10 +109,10 @@ export default function AIServicePage() {
                     { i: <IconSearch />, t: 'Anomaly Detection', desc: 'Spot fraud or hardware failures before they escalate into outages.' },
                     { i: <IconCloud />, t: 'Edge AI Deployment', desc: 'Optimizing models to run locally on branch hardware with zero latency.' }
                   ].map((cap, i) => (
-                    <div key={i} className="fade-up" style={{ background: '#fff', border: '1px solid #f1f5f9', padding: '30px', borderRadius: '16px', boxShadow: '0 4px 15px rgba(0,0,0,0.03)', transition: 'all 0.3s ease' }}>
-                      <div style={{ color: '#007A3D', marginBottom: '16px' }}>{cap.i}</div>
-                      <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '12px', color: '#034EA2' }}>{cap.t}</h3>
-                      <p style={{ fontSize: '13px', color: '#64748b', lineHeight: '1.5' }}>{cap.desc}</p>
+                    <div key={i} className="fade-up" style={{ background: '#fff', border: '1px solid rgba(15,23,42,0.06)', padding: '30px', borderRadius: '16px', boxShadow: 'var(--shadow-sm)', transition: 'all 0.3s ease' }}>
+                      <div style={{ color: 'var(--green-dark)', marginBottom: '16px' }}>{cap.i}</div>
+                      <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '12px', color: 'var(--navy-dark)' }}>{cap.t}</h3>
+                      <p style={{ fontSize: '13px', color: 'var(--text-body)', lineHeight: '1.5' }}>{cap.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -123,25 +121,24 @@ export default function AIServicePage() {
           </div>
         </section>
 
-        {/* ── 4. AI LIFECYCLE (MATCHES THEME) ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        {/* ── 4. AI LIFECYCLE ── */}
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <h2 className="text-center" style={{ marginBottom: '60px', color: '#034EA2' }}>Intelligence <span style={{ color: '#007A3D' }}>Lifecycle</span></h2>
-            <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '25px', left: '0', right: '0', height: '2px', background: '#e2e8f0', zIndex: 1 }}></div>
+            <h2 className="section-title text-center" style={{ marginBottom: '60px' }}>Intelligence <span className="highlight">Lifecycle</span></h2>
+            <div className="grid-4-cols">
               {[
                 { s: '01', t: 'Data Audit', d: 'Identifying & cleaning critical datasets.', i: <IconSearch /> },
                 { s: '02', t: 'Model Training', d: 'Custom neural architecture development.', i: <IconBrain /> },
                 { s: '03', t: 'Deployment', d: 'Cloud or local edge integration.', i: <IconCloud /> },
                 { s: '04', t: 'Active Tuning', d: 'Continuous learning & bias correction.', i: <IconBot /> }
               ].map((step, i) => (
-                <div key={i} className="process-step fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
+                <div key={i} className="process-step fade-up" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
                   <div className="step-num">{step.s}</div>
-                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <span style={{ color: '#007A3D' }}>{step.i}</span>
+                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--green-dark)' }}>{step.i}</span>
                     {step.t}
                   </h4>
-                  <p className="text-center" style={{ fontSize: '13px', color: '#64748b' }}>{step.d}</p>
+                  <p className="text-center" style={{ fontSize: '13px', color: 'var(--text-body)' }}>{step.d}</p>
                 </div>
               ))}
             </div>
@@ -149,14 +146,14 @@ export default function AIServicePage() {
         </section>
 
         {/* ── 5. BRANDED CTA ── */}
-        <section style={{ padding: '120px 0', textAlign: 'center' }}>
+        <section className="cta-section" style={{ padding: '120px 0' }}>
           <div className="container">
-            <div style={{ maxWidth: '800px', margin: '0 auto', background: '#034EA2', padding: '80px 40px', borderRadius: '40px', color: '#fff' }}>
-              <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '20px' }}>Evolve Your <span style={{ color: 'var(--blue-light)' }}>Enterprise.</span></h2>
+            <div className="cta-inner" style={{ maxWidth: '800px', background: 'var(--navy)', padding: '80px 40px', borderRadius: '40px', color: '#fff' }}>
+              <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '20px', color: '#fff' }}>Evolve Your <span style={{ color: 'var(--blue-light)' }}>Enterprise.</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', fontSize: '18px' }}>
                 The window for AI adoption is closing. Start building your intelligence moat today with DigNep.
               </p>
-              <Link href="/contact" className="btn-primary" style={{ background: '#fff', color: '#034EA2', padding: '18px 40px', fontSize: '18px', borderRadius: '12px' }}>Consult AI Architect →</Link>
+              <Link href="/contact" className="btn-primary" style={{ background: '#fff', color: 'var(--navy)', padding: '18px 40px', fontSize: '18px', borderRadius: '12px' }}>Consult AI Architect →</Link>
             </div>
           </div>
         </section>

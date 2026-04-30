@@ -32,45 +32,44 @@ export default function SecurityServicePage() {
     <main style={{background: '#fff', color: '#034EA2'}}>
       <div className="page active" id="page-service-security">
         
-        {/* ── 1. FORTRESS HERO (FIXED SPACING) ── */}
-        <section className="sec-hero" style={{ padding: '180px 0 100px', background: '#034EA2', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
+        {/* ── 1. FORTRESS HERO ── */}
+        <section className="sec-hero sp-hero" style={{ background: 'var(--navy)' }}>
+          <div className="sp-hero-bg-grid" style={{ opacity: 0.1 }} />
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 80%)' }}></div>
           
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="container sp-hero-inner">
             <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '8px 20px', borderRadius: '100px', marginBottom: '30px' }}>
-                <span style={{ color: 'var(--blue)' }}><IconShield /></span>
-                <span style={{ color: '#fff', fontSize: '12px', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase' }}>Zero-Trust Architecture</span>
+              <div className="section-tag why-tag mb-16" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}>
+                <span style={{ color: 'var(--blue)' }}><IconShield /></span> Zero-Trust Architecture
               </div>
-              <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5rem)', fontWeight: '900', color: '#fff', lineHeight: '0.9', marginBottom: '30px', letterSpacing: '-3px' }}>
-                Defend the <br /><span style={{ color: 'var(--blue)' }}>Digital Perimeter.</span>
+              <h1 className="sp-hero-title" style={{ color: '#fff' }}>
+                Defend the <br /><span className="highlight">Digital Perimeter.</span>
               </h1>
-              <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '50px', maxWidth: '650px', margin: '0 auto 50px' }}>
+              <p className="sp-hero-desc" style={{ color: 'rgba(255,255,255,0.7)', margin: '0 auto 40px' }}>
                 Enterprise security isn't about building higher walls—it's about deeper visibility. We provide 24/7 SOC services and hardware-level encryption.
               </p>
-              <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <Link href="/contact" className="btn-primary" style={{ background: 'var(--blue)', color: '#fff', padding: '20px 45px', borderRadius: '12px' }}>Start Security Audit →</Link>
-                <Link href="/services" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '20px 45px', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', border: '1px solid rgba(255,255,255,0.1)' }}>Our Frameworks</Link>
+              <div className="hero-actions" style={{ justifyContent: 'center' }}>
+                <Link href="/contact" className="btn-primary">Start Security Audit →</Link>
+                <Link href="/services" className="btn-secondary" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>Our Frameworks</Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── 2. SECURITY PILLARS ── */}
-        <section style={{ padding: '120px 0', background: '#fff' }}>
+        <section style={{ padding: '120px 0', background: 'var(--white)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px' }}>
+            <div className="grid-4-cols">
               {[
                 { t: 'SOC 24/7', d: 'Round-the-clock threat hunting and incident response.', i: <IconActivity /> },
                 { t: 'Endpoint Lock', d: 'Secure every device connecting to your network.', i: <IconLock /> },
                 { t: 'Identity Mgmt', d: 'Multi-factor and biometric authentication layers.', i: <IconFingerprint /> },
                 { t: 'Pen-Testing', d: 'Proactive vulnerability assessments and patching.', i: <IconShield /> }
               ].map((pillar, i) => (
-                <div key={i} className="fade-up" style={{ padding: '40px 30px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', transition: 'all 0.3s ease' }}>
+                <div key={i} className="fade-up" style={{ padding: '40px 30px', background: 'var(--bg-navy)', border: '1px solid rgba(15,23,42,0.06)', borderRadius: '24px', transition: 'all 0.3s ease' }}>
                   <div style={{ color: 'var(--blue)', marginBottom: '20px' }}>{pillar.i}</div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '12px', color: '#034EA2' }}>{pillar.t}</h3>
-                  <p style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.6' }}>{pillar.d}</p>
+                  <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '12px', color: 'var(--navy-dark)' }}>{pillar.t}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-body)', lineHeight: '1.6' }}>{pillar.d}</p>
                 </div>
               ))}
             </div>
@@ -78,34 +77,36 @@ export default function SecurityServicePage() {
         </section>
 
         {/* ── 3. REAL-TIME MONITORING VISUAL ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-              <div className="fade-up">
-                <h2 style={{ fontSize: '40px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>Invisible <span style={{ color: 'var(--blue)' }}>Protection.</span> <br />Visible Results.</h2>
-                <p style={{ color: '#64748b', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
+            <div className="grid-split-hero">
+              <div className="fade-up text-left">
+                <h2 className="section-title" style={{ textAlign: 'left' }}>Invisible <span className="highlight">Protection.</span> <br />Visible Results.</h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
                   Our security systems operate at the kernel level, ensuring zero-latency protection that never slows down your workforce.
                 </p>
                 <div style={{ display: 'grid', gap: '20px' }}>
                   <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--blue)' }}><IconShield /></div>
                     <div>
-                      <h4 style={{ fontWeight: '800', color: '#034EA2' }}>DDoS Mitigation</h4>
-                      <p style={{ fontSize: '14px', color: '#64748b' }}>Absorb and filter terabits of malicious traffic instantly.</p>
+                      <h4 style={{ fontWeight: '800', color: 'var(--navy-dark)' }}>DDoS Mitigation</h4>
+                      <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>Absorb and filter terabits of malicious traffic instantly.</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--blue)' }}><IconLock /></div>
                     <div>
-                      <h4 style={{ fontWeight: '800', color: '#034EA2' }}>Data Encryption</h4>
-                      <p style={{ fontSize: '14px', color: '#64748b' }}>AES-256 standard encryption for all data at rest and in transit.</p>
+                      <h4 style={{ fontWeight: '800', color: 'var(--navy-dark)' }}>Data Encryption</h4>
+                      <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>AES-256 standard encryption for all data at rest and in transit.</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="fade-up" style={{ position: 'relative' }}>
-                <img src="/cyber-security.png" alt="Security SOC" style={{ width: '100%', borderRadius: '32px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
-                <div style={{ position: 'absolute', top: '20px', right: '20px', background: '#f43f5e', color: '#fff', padding: '10px 20px', borderRadius: '100px', fontSize: '12px', fontWeight: '800', animation: 'pulse 2s infinite' }}>LIVE THREAT MAP</div>
+              <div className="fade-up sp-hero-visual">
+                <div className="sp-hero-img-frame">
+                   <img src="/cyber-security.png" alt="Security SOC" className="sp-hero-img" />
+                </div>
+                <div style={{ position: 'absolute', top: '20px', right: '20px', background: '#f43f5e', color: '#fff', padding: '10px 20px', borderRadius: '100px', fontSize: '12px', fontWeight: '800', animation: 'pulse 2s infinite', zIndex: 3 }}>LIVE THREAT MAP</div>
               </div>
             </div>
           </div>
@@ -114,8 +115,8 @@ export default function SecurityServicePage() {
         {/* ── 4. FINAL CTA ── */}
         <section style={{ padding: '120px 0', textAlign: 'center' }}>
           <div className="container">
-            <h2 style={{ fontSize: '45px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>Secure Your <span style={{ color: 'var(--blue)' }}>Empire.</span></h2>
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+            <h2 className="section-title">Secure Your <span className="highlight">Empire.</span></h2>
+            <div className="hero-actions" style={{ justifyContent: 'center' }}>
               <Link href="/contact" className="btn-primary" style={{ padding: '20px 50px', borderRadius: '12px' }}>Request Security Audit →</Link>
             </div>
           </div>

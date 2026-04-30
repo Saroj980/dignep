@@ -361,7 +361,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── 8. FAQ ── */}
-        <section className="svc-faq-section">
+        <section id="faq" className="svc-faq-section">
           <div className="container">
             <div className="svc-faq-inner">
               <div className="svc-faq-left">

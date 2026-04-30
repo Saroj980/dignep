@@ -40,28 +40,27 @@ export default function TrainingPage() {
     <main style={{ background: '#fff' }}>
       <div className="page active" id="page-training">
         
-        {/* ── 1. UNIQUE TRAINING HERO: GRID & TECHNICAL ── */}
-        <section className="tr-hero" style={{ padding: '200px 0 120px', position: 'relative', overflow: 'hidden', background: '#034EA2' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '30px 30px', opacity: 0.3 }}></div>
+        {/* ── 1. UNIQUE TRAINING HERO ── */}
+        <section className="tr-hero sp-hero" style={{ background: 'var(--navy)' }}>
+          <div className="sp-hero-bg-grid" style={{ opacity: 0.3 }} />
           <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', background: 'var(--blue)', filter: 'blur(150px)', borderRadius: '50%', opacity: 0.2 }}></div>
           
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="container sp-hero-inner">
             <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ display: 'inline-block', padding: '8px 20px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '100px', color: '#fff', fontSize: '12px', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '30px' }}>
-                <span style={{ marginRight: '8px', display: 'inline-block', verticalAlign: 'middle' }}><IconAcademy /></span>
-                Elite Engineering Academy
+              <div className="section-tag why-tag mb-16" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}>
+                <span style={{ marginRight: '8px' }}><IconAcademy /></span> Elite Engineering Academy
               </div>
-              <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: '900', color: '#fff', lineHeight: '0.9', marginBottom: '30px', letterSpacing: '-3px' }}>
+              <h1 className="sp-hero-title" style={{ color: '#fff' }}>
                 Master the <span style={{ color: 'var(--green)' }}>Infrastructure</span> <br />of the Future.
               </h1>
-              <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '45px', maxWidth: '750px', margin: '0 auto 45px' }}>
+              <p className="sp-hero-desc" style={{ color: 'rgba(255,255,255,0.8)', margin: '0 auto 40px' }}>
                 From Tier standards to High-Density networking, our training programs are designed by engineers for the next generation of infrastructure experts.
               </p>
-              <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <a href="#courses" className="btn-primary" style={{ background: 'var(--green)', color: '#034EA2', padding: '20px 45px', borderRadius: '12px' }}>Explore Programs ↓</a>
+              <div className="hero-actions" style={{ justifyContent: 'center' }}>
+                <a href="#courses" className="btn-primary" style={{ background: 'var(--green)', color: 'var(--navy)' }}>Explore Programs ↓</a>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <div style={{ display: 'flex' }}>
-                    {[1,2,3].map(i => <div key={i} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '2px solid #034EA2', background: '#e2e8f0', marginLeft: i > 1 ? '-10px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#034EA2', fontWeight: '900' }}>{i}</div>)}
+                    {[1,2,3].map(i => <div key={i} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '2px solid var(--navy)', background: 'var(--light-gray)', marginLeft: i > 1 ? '-10px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: 'var(--navy)', fontWeight: '900' }}>{i}</div>)}
                   </div>
                   <span style={{ color: '#fff', fontSize: '14px', fontWeight: '600' }}>1,200+ Professionals Certified</span>
                 </div>
@@ -71,21 +70,21 @@ export default function TrainingPage() {
         </section>
 
         {/* ── 2. COURSE GRID ── */}
-        <section id="courses" style={{ padding: '100px 0', background: '#fff' }}>
+        <section id="courses" style={{ padding: '100px 0', background: 'var(--white)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div className="grid-3-cols">
               {[
                 { t: 'DC Engineering', d: 'Master Tier standards, power cycles, and rack management.', i: <IconNetwork />, l: 'Beginner → Adv' },
                 { t: 'Cybersecurity', d: 'SOC operations, firewall hardening, and perimeter defense.', i: <IconSecurity />, l: 'Intermediate' },
                 { t: 'Cloud Architecture', d: 'AWS/Azure multi-cloud strategy and secure migration.', i: <IconCloud />, l: 'Advanced' }
               ].map((course, i) => (
-                <div key={i} className="fade-up" style={{ padding: '50px 40px', background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', boxShadow: '0 20px 40px rgba(0,0,0,0.02)', position: 'relative', overflow: 'hidden' }}>
+                <div key={i} className="fade-up" style={{ padding: '50px 40px', background: 'var(--white)', border: '1px solid rgba(15,23,42,0.06)', borderRadius: '32px', boxShadow: 'var(--shadow-sm)', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '4px', background: 'var(--blue)' }}></div>
                   <div style={{ fontSize: '40px', marginBottom: '30px', color: 'var(--blue)' }}>{course.i}</div>
                   <span style={{ fontSize: '11px', fontWeight: '900', color: 'var(--blue)', textTransform: 'uppercase', letterSpacing: '1px' }}>{course.l}</span>
-                  <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#034EA2', margin: '15px 0' }}>{course.t}</h3>
-                  <p style={{ color: '#64748b', lineHeight: '1.7', marginBottom: '30px' }}>{course.d}</p>
-                  <div style={{ display: 'flex', gap: '15px', fontSize: '12px', color: '#64748b', fontWeight: '700', alignItems: 'center' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: '900', color: 'var(--navy-dark)', margin: '15px 0' }}>{course.t}</h3>
+                  <p style={{ color: 'var(--text-body)', lineHeight: '1.7', marginBottom: '30px' }}>{course.d}</p>
+                  <div style={{ display: 'flex', gap: '15px', fontSize: '12px', color: 'var(--text-muted)', fontWeight: '700', alignItems: 'center' }}>
                     <span>🕒 120 Hrs</span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><IconCertificate /> Certificate</span>
                   </div>
@@ -96,32 +95,34 @@ export default function TrainingPage() {
         </section>
 
         {/* ── 3. TRAINING PHILOSOPHY: THE LAB ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-              <div className="fade-up">
-                <h2 style={{ fontSize: '42px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>Real Hardware. <br /><span style={{ color: 'var(--blue)' }}>Real Skills.</span></h2>
-                <p style={{ color: '#64748b', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
+            <div className="grid-split-hero">
+              <div className="fade-up text-left">
+                <h2 className="section-title" style={{ textAlign: 'left' }}>Real Hardware. <br /><span className="highlight">Real Skills.</span></h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
                   We don't believe in just theory. Our students get hands-on access to enterprise-grade routers, servers, and cooling systems in our state-of-the-art laboratory.
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                  <div style={{ padding: '20px', background: '#fff', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                    <div style={{ fontWeight: '900', color: '#034EA2', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ padding: '20px', background: 'var(--white)', borderRadius: '16px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ fontWeight: '900', color: 'var(--navy-dark)', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: 'var(--blue)' }}><IconLab /></span> Live Labs
                     </div>
-                    <div style={{ fontSize: '13px', color: '#64748b' }}>Configure real enterprise devices.</div>
+                    <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Configure real enterprise devices.</div>
                   </div>
-                  <div style={{ padding: '20px', background: '#fff', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                    <div style={{ fontWeight: '900', color: '#034EA2', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ padding: '20px', background: 'var(--white)', borderRadius: '16px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ fontWeight: '900', color: 'var(--navy-dark)', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: 'var(--blue)' }}><IconMentor /></span> Expert Mentors
                     </div>
-                    <div style={{ fontSize: '13px', color: '#64748b' }}>Learn from working engineers.</div>
+                    <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Learn from working engineers.</div>
                   </div>
                 </div>
               </div>
-              <div className="fade-up" style={{ position: 'relative' }}>
-                <img src="/web-dev-workspace.png" alt="Training Lab" style={{ width: '100%', borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
-                <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', background: 'var(--green)', padding: '24px', borderRadius: '24px', color: '#034EA2', fontWeight: '900', fontSize: '18px', boxShadow: '0 15px 30px rgba(16, 185, 129, 0.2)' }}>
+              <div className="fade-up sp-hero-visual">
+                <div className="sp-hero-img-frame">
+                   <img src="/web-dev-workspace.png" alt="Training Lab" className="sp-hero-img" />
+                </div>
+                <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', background: 'var(--green)', padding: '24px', borderRadius: '24px', color: 'var(--navy)', fontWeight: '900', fontSize: '18px', boxShadow: '0 15px 30px rgba(16, 185, 129, 0.2)', zIndex: 3 }}>
                   100% Practical
                 </div>
               </div>
@@ -130,15 +131,14 @@ export default function TrainingPage() {
         </section>
 
         {/* ── 4. BRANDED CTA ── */}
-        <section style={{ padding: '120px 0', textAlign: 'center' }}>
+        <section className="cta-section" style={{ padding: '120px 0' }}>
           <div className="container">
-            <div style={{ background: '#034EA2', borderRadius: '60px', padding: '100px 40px', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '300px', height: '300px', border: '40px solid rgba(255,255,255,0.03)', borderRadius: '50%' }}></div>
-              <h2 style={{ fontSize: '50px', fontWeight: '900', color: '#fff', marginBottom: '24px' }}>Ready to <span style={{ color: 'var(--green)' }}>Level Up?</span></h2>
+            <div className="cta-inner" style={{ background: 'var(--navy)', borderRadius: '60px', padding: '100px 40px' }}>
+              <h2 style={{ fontSize: '50px', fontWeight: '900', color: '#fff', marginBottom: '24px' }}>Ready to <span className="highlight">Level Up?</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '20px', maxWidth: '600px', margin: '0 auto 50px' }}>
                 Enrollment for the Summer cohort is now open. Secure your spot and join the ranks of elite IT professionals.
               </p>
-              <a href="/contact" className="btn-primary" style={{ background: 'var(--green)', color: '#034EA2', padding: '22px 60px', borderRadius: '100px', fontWeight: '900' }}>Enroll Now →</a>
+              <a href="/contact" className="btn-primary" style={{ background: 'var(--green)', color: 'var(--navy)', padding: '22px 60px', borderRadius: '100px' }}>Enroll Now →</a>
             </div>
           </div>
         </section>

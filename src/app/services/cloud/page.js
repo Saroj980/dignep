@@ -32,43 +32,41 @@ export default function CloudServicePage() {
     <main style={{background: '#fff', color: '#034EA2'}}>
       <div className="page active" id="page-service-cloud">
         
-        {/* ── 1. SKY HERO (FIXED SPACING) ── */}
-        <section className="cl-hero" style={{ padding: '180px 0 100px', background: 'linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%)', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', width: '80%', height: '80%', background: 'radial-gradient(circle, rgba(14, 165, 233, 0.03) 0%, transparent 60%)', zIndex: 1 }}></div>
-          
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        {/* ── 1. SKY HERO ── */}
+        <section className="cl-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
+          <div className="container sp-hero-inner">
             <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(14, 165, 233, 0.1)', color: 'var(--blue)', padding: '8px 24px', borderRadius: '100px', marginBottom: '30px', fontWeight: '800', letterSpacing: '2px', fontSize: '12px', textTransform: 'uppercase' }}>
-                <IconCloud />
-                Multi-Cloud Architecture
+              <div className="section-tag why-tag mb-16">
+                <IconCloud /> Multi-Cloud Architecture
               </div>
-              <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5rem)', fontWeight: '900', color: '#034EA2', lineHeight: '1', marginBottom: '30px', letterSpacing: '-3px' }}>
-                Infinite <span style={{ color: 'var(--blue)' }}>Scale.</span> <br />Seamless Migration.
+              <h1 className="sp-hero-title">
+                Infinite <span className="highlight">Scale.</span> <br />Seamless Migration.
               </h1>
-              <p style={{ fontSize: '20px', color: '#64748b', lineHeight: '1.6', marginBottom: '45px' }}>
+              <p className="sp-hero-desc">
                 We help enterprises transition from legacy hardware to flexible, secure, and cost-optimized cloud environments on AWS, Azure, and Google Cloud.
               </p>
-              <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <Link href="/contact" className="btn-primary" style={{ padding: '20px 45px', borderRadius: '12px' }}>Consult Cloud Architect →</Link>
-                <Link href="/services" style={{ background: '#fff', color: '#034EA2', border: '1px solid #e2e8f0', padding: '20px 45px', borderRadius: '12px', textDecoration: 'none', fontWeight: '700' }}>Migration Roadmaps</Link>
+              <div className="hero-actions" style={{ justifyContent: 'center' }}>
+                <Link href="/contact" className="btn-primary">Consult Cloud Architect →</Link>
+                <Link href="/services" className="btn-secondary">Migration Roadmaps</Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── 2. CLOUD PILLARS ── */}
-        <section style={{ padding: '100px 0', background: '#fff' }}>
+        <section style={{ padding: '100px 0', background: 'var(--white)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div className="grid-3-cols">
               {[
                 { t: 'Multi-Cloud Strategy', d: 'Avoiding vendor lock-in with redundant multi-platform setups.', i: <IconCloud /> },
                 { t: 'Cloud Security Posture', d: 'Hardware-level encryption and zero-trust cloud access.', i: <IconShield /> },
                 { t: 'Serverless Compute', d: 'Scaling infrastructure automatically with actual user demand.', i: <IconZap /> }
               ].map((pillar, i) => (
-                <div key={i} className="fade-up" style={{ padding: '50px 40px', background: '#f8fafc', borderRadius: '32px', border: '1px solid #e2e8f0', textAlign: 'center' }}>
+                <div key={i} className="fade-up" style={{ padding: '50px 40px', background: 'var(--bg-navy)', borderRadius: '32px', border: '1px solid rgba(15,23,42,0.06)', textAlign: 'center' }}>
                   <div style={{ color: 'var(--blue)', marginBottom: '30px', display: 'flex', justifyContent: 'center' }}>{pillar.i}</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#034EA2', marginBottom: '16px' }}>{pillar.t}</h3>
-                  <p style={{ color: '#64748b', lineHeight: '1.7', fontSize: '15px' }}>{pillar.d}</p>
+                  <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '16px' }}>{pillar.t}</h3>
+                  <p style={{ color: 'var(--text-body)', lineHeight: '1.7', fontSize: '15px' }}>{pillar.d}</p>
                 </div>
               ))}
             </div>
@@ -76,25 +74,25 @@ export default function CloudServicePage() {
         </section>
 
         {/* ── 3. HYBRID CLOUD VISUAL ── */}
-        <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+            <div className="grid-split-hero">
               <div className="fade-up">
-                <img src="/ai-data-hub.png" alt="Cloud Infrastructure" style={{ width: '100%', borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.05)' }} />
+                <img src="/ai-data-hub.png" alt="Cloud Infrastructure" style={{ width: '100%', borderRadius: '40px', boxShadow: 'var(--shadow-lg)' }} />
               </div>
-              <div className="fade-up">
-                <h2 style={{ fontSize: '40px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>Your Data, <br /><span style={{ color: 'var(--blue)' }}>Everywhere.</span> Securely.</h2>
-                <p style={{ color: '#64748b', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
+              <div className="fade-up text-left">
+                <h2 className="section-title" style={{ textAlign: 'left' }}>Your Data, <br /><span className="highlight">Everywhere.</span> Securely.</h2>
+                <p className="section-subtitle" style={{ textAlign: 'left', marginLeft: '0' }}>
                   Whether it's hybrid cloud or full public migration, we ensure your data is accessible, compliant, and protected by enterprise-grade SLAs.
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                <div className="grid-2-cols" style={{ gap: '20px' }}>
                   <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                     <div style={{ color: 'var(--blue)' }}><IconActivity /></div>
-                    <span style={{ fontWeight: '700', fontSize: '14px' }}>99.99% Availability</span>
+                    <span style={{ fontWeight: '700', fontSize: '14px', color: 'var(--navy-dark)' }}>99.99% Availability</span>
                   </div>
                   <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                     <div style={{ color: 'var(--blue)' }}><IconShield /></div>
-                    <span style={{ fontWeight: '700', fontSize: '14px' }}>GDPR/ISO Compliant</span>
+                    <span style={{ fontWeight: '700', fontSize: '14px', color: 'var(--navy-dark)' }}>GDPR/ISO Compliant</span>
                   </div>
                 </div>
               </div>
@@ -105,7 +103,7 @@ export default function CloudServicePage() {
         {/* ── 4. CTA ── */}
         <section style={{ padding: '120px 0', textAlign: 'center' }}>
           <div className="container">
-            <h2 style={{ fontSize: '45px', fontWeight: '900', color: '#034EA2', marginBottom: '30px' }}>The Sky is <span style={{ color: 'var(--blue)' }}>Not the Limit.</span></h2>
+            <h2 className="section-title">The Sky is <span className="highlight">Not the Limit.</span></h2>
             <Link href="/contact" className="btn-primary" style={{ padding: '20px 60px', borderRadius: '100px', fontSize: '18px' }}>Start Cloud Migration →</Link>
           </div>
         </section>

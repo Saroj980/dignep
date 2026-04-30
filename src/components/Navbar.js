@@ -1,17 +1,34 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [vanished, setVanished] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVanished(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const footer = document.querySelector('#footer');
+    if (footer) observer.observe(footer);
+
+    return () => {
+      if (footer) observer.unobserve(footer);
+    };
+  }, []);
 
   const isActive = (path) => pathname === path;
 
   return (
     <>
-      <nav id="navbar">
+      <nav id="navbar" className={vanished ? 'vanished' : ''}>
         <div className="nav-inner">
           <div className="nav-links-left">
             <Link href="/" className={isActive('/') ? 'active' : ''}>Home</Link>
