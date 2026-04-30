@@ -119,7 +119,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
             <span></span><span></span><span></span>
           </div>
         </div>
@@ -127,11 +127,30 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-inner">
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="/training" onClick={() => setMenuOpen(false)}>Training</Link>
-          <Link href="/contact" className="mobile-cta" onClick={() => setMenuOpen(false)}>Start a Project</Link>
+          <div className="mobile-menu-header">
+            <img src="/dignep-logo.png" alt="DigNep Logo" className="mobile-logo" />
+            <div className="close-menu" onClick={() => setMenuOpen(false)}>✕</div>
+          </div>
+          <div className="mobile-links">
+            <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+            <div className="mobile-dropdown-section">
+               <span className="mobile-link-header">Services</span>
+               <div className="mobile-sublinks">
+                 <Link href="/services/networking" onClick={() => setMenuOpen(false)}>Networking & IT</Link>
+                 <Link href="/services/data-center" onClick={() => setMenuOpen(false)}>Data Center</Link>
+                 <Link href="/services/security" onClick={() => setMenuOpen(false)}>Cyber Security</Link>
+                 <Link href="/services/ai" onClick={() => setMenuOpen(false)}>AI & ML</Link>
+                 <Link href="/services/cloud" onClick={() => setMenuOpen(false)}>Cloud Computing</Link>
+                 <Link href="/services/software" onClick={() => setMenuOpen(false)}>Software Engineering</Link>
+               </div>
+            </div>
+            <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+            <Link href="/training" onClick={() => setMenuOpen(false)}>Training</Link>
+            <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          </div>
+          <div className="mobile-menu-footer">
+            <Link href="/contact" className="mobile-cta" onClick={() => setMenuOpen(false)}>Start a Project →</Link>
+          </div>
         </div>
       </div>
     </>
