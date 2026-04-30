@@ -155,7 +155,9 @@ export default function ServicePageTemplate({
                 {processSteps.map((step, i) => (
                   <div key={i} className="process-step fade-up">
                     <div className="step-num">{i + 1}</div>
-                    <h3>{step.icon} {step.title}</h3>
+                    <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                      {step.icon} {step.title}
+                    </h3>
                     <p>{step.desc}</p>
                   </div>
                 ))}

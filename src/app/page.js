@@ -93,13 +93,13 @@ export default function Home() {
                 </div>
                 <div className="brand-card">
                   <div className="brand-icon-box">
-                    <img src="https://cdn.simpleicons.org/microsoft/5E5E5E" alt="Microsoft" className="brand-icon" />
+                    <img src="/azure.png" alt="Microsoft Azure" className="brand-icon" />
                   </div>
                   <span className="brand-name">Microsoft Azure</span>
                 </div>
                 <div className="brand-card">
                   <div className="brand-icon-box">
-                    <img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS" className="brand-icon" />
+                    <img src="/AWS.png" alt="AWS Cloud" className="brand-icon" />
                   </div>
                   <span className="brand-name">AWS Cloud</span>
                 </div>
@@ -124,13 +124,13 @@ export default function Home() {
                 </div>
                 <div className="brand-card">
                   <div className="brand-icon-box">
-                    <img src="https://cdn.simpleicons.org/microsoft/5E5E5E" alt="Microsoft" className="brand-icon" />
+                    <img src="/azure.png" alt="Microsoft Azure" className="brand-icon" />
                   </div>
                   <span className="brand-name">Microsoft Azure</span>
                 </div>
                 <div className="brand-card">
                   <div className="brand-icon-box">
-                    <img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS" className="brand-icon" />
+                    <img src="/AWS.png" alt="AWS Cloud" className="brand-icon" />
                   </div>
                   <span className="brand-name">AWS Cloud</span>
                 </div>
@@ -279,6 +279,115 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/*  PARTNERSHIP MATRIX  */}
+        <section className="partnership-section">
+          <div className="container">
+            <div style={{textAlign: "center", marginBottom: "16px"}}>
+              <span className="section-tag" style={{background: "rgba(14, 165, 233, 0.1)", color: "var(--blue)"}}>Compatibility Matrix</span>
+            </div>
+            <h2 className="section-title text-center centered-max-width" style={{marginBottom: "12px"}}>
+              Strategic <span className="accent">Vendor</span> Ecosystem
+            </h2>
+            <p className="section-subtitle text-center centered-margin" style={{marginBottom: "40px"}}>
+              We engineer deep integrations with the world's leading technology providers to deliver seamless, high-performance infrastructure.
+            </p>
+
+            <div className="partnership-matrix-container fade-up">
+              <table className="partnership-matrix">
+                <thead>
+                  <tr>
+                    <th className="matrix-header-cell">
+                      <h3 style={{fontSize: "20px", fontWeight: "900", color: "var(--navy-dark)"}}>Capabilities</h3>
+                      <p style={{fontSize: "13px", color: "var(--text-muted)", fontWeight: "500"}}>Enterprise-Grade Specs</p>
+                    </th>
+                    {[
+                      { name: "Cisco Systems", icon: "cisco", color: "126BC5", href: "/services/networking" },
+                      { name: "Microsoft Azure", isLocal: true, src: "/azure.png", href: "/services/cloud" },
+                      { name: "AWS Cloud", isLocal: true, src: "/AWS.png", href: "/services/cloud" },
+                      { name: "Fortinet Sec", icon: "fortinet", color: "EE3124", href: "/services/security" },
+                      { name: "MikroTik Ops", icon: "mikrotik", color: "2D3436", href: "/services/networking" }
+                    ].map((vendor, i) => (
+                      <th key={i} className="matrix-header-cell">
+                        <img 
+                          src={vendor.isLocal ? vendor.src : `https://cdn.simpleicons.org/${vendor.icon}/${vendor.color}`} 
+                          alt={vendor.name} 
+                          className="matrix-vendor-logo" 
+                          style={vendor.isLocal ? { filter: 'none', opacity: 1 } : {}}
+                        />
+                        <span className="matrix-vendor-name">{vendor.name}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { 
+                      title: "Enterprise Networking", 
+                      desc: "High-density backbone engineering and SD-WAN integration.",
+                      checks: [true, false, true, false, true] 
+                    },
+                    { 
+                      title: "Zero-Trust Security", 
+                      desc: "Identity-aware access control and hardware-level encryption.",
+                      checks: [true, true, false, true, false] 
+                    },
+                    { 
+                      title: "Multi-Cloud Infrastructure", 
+                      desc: "Hybrid deployment and seamless legacy-to-cloud migration.",
+                      checks: [true, true, true, false, false] 
+                    },
+                    { 
+                      title: "AI-Driven Automation", 
+                      desc: "Predictive maintenance and autonomous network tuning.",
+                      checks: [true, true, true, true, false] 
+                    }
+                  ].map((row, i) => (
+                    <tr key={i} className="matrix-row">
+                      <td className="matrix-label-cell">
+                        <span className="matrix-feature-title">{row.title}</span>
+                        <span className="matrix-feature-desc">{row.desc}</span>
+                      </td>
+                      {row.checks.map((check, j) => (
+                        <td key={j} className="matrix-check-cell">
+                          {check && (
+                            <div className="matrix-check">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            </div>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                  <tr>
+                    <td className="matrix-footer-cell">
+                      <span style={{fontSize: "12px", fontWeight: "800", color: "var(--mid-gray)", textTransform: "uppercase"}}>Explore Ecosystem</span>
+                    </td>
+                    {[
+                      "/services/networking",
+                      "/services/cloud",
+                      "/services/cloud",
+                      "/services/security",
+                      "/services/networking"
+                    ].map((url, i) => (
+                      <td key={i} className="matrix-footer-cell">
+                        <a href={url} className="matrix-learn-btn">
+                          Learn more 
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        </a>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
 
         {/*  HOW WE WORK  */}
         <section className="process-section">

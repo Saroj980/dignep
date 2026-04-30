@@ -23,6 +23,9 @@ const IconTools = () => (
 const IconSolution = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/></svg>
 );
+const IconZap = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+);
 
 export default function NetworkingServicePage() {
   useEffect(() => {
@@ -130,16 +133,17 @@ export default function NetworkingServicePage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
               <div style={{ position: 'absolute', top: '25px', left: '0', right: '0', height: '2px', background: '#e2e8f0', zIndex: 1 }}></div>
               {[
-                { s: '01', t: 'Site Audit', d: 'RF surveys & rack analysis.' },
-                { s: '02', t: 'Topology Design', d: 'Logical & physical schematics.' },
-                { s: '03', t: 'Execution', d: 'Precision cabling & config.' },
-                { s: '04', t: 'Validation', d: 'Stress testing & certification.' }
+                { s: '01', t: 'Site Audit', d: 'RF surveys & rack analysis.', i: <IconNOC /> },
+                { s: '02', t: 'Topology Design', d: 'Logical & physical schematics.', i: <IconSolution /> },
+                { s: '03', t: 'Execution', d: 'Precision cabling & config.', i: <IconTools /> },
+                { s: '04', t: 'Validation', d: 'Stress testing & certification.', i: <IconZap /> }
               ].map((step, i) => (
-                <div key={i} className="fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
-                  <div style={{ width: '50px', height: '50px', background: '#fff', border: '2px solid var(--blue)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: '900', color: 'var(--blue)', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
-                    <div style={{margin: '0 auto'}}>{step.s}</div>
-                  </div>
-                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2' }}>{step.t}</h4>
+                <div key={i} className="process-step fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
+                  <div className="step-num">{step.s}</div>
+                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--blue)' }}>{step.i}</span>
+                    {step.t}
+                  </h4>
                   <p className="text-center" style={{ fontSize: '13px', color: '#64748b' }}>{step.d}</p>
                 </div>
               ))}

@@ -272,7 +272,7 @@ export default function ServicesPage() {
               ].map((step, i) => (
                 <div key={i} className="process-step fade-up">
                   <div className="step-num">{step.num}</div>
-                  <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                     <span style={{ color: 'var(--blue)' }}>{step.icon}</span>
                     {step.title}
                   </h3>

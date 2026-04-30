@@ -130,16 +130,17 @@ export default function AIServicePage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
               <div style={{ position: 'absolute', top: '25px', left: '0', right: '0', height: '2px', background: '#e2e8f0', zIndex: 1 }}></div>
               {[
-                { s: '01', t: 'Data Audit', d: 'Identifying & cleaning critical datasets.' },
-                { s: '02', t: 'Model Training', d: 'Custom neural architecture development.' },
-                { s: '03', t: 'Deployment', d: 'Cloud or local edge integration.' },
-                { s: '04', t: 'Active Tuning', d: 'Continuous learning & bias correction.' }
+                { s: '01', t: 'Data Audit', d: 'Identifying & cleaning critical datasets.', i: <IconSearch /> },
+                { s: '02', t: 'Model Training', d: 'Custom neural architecture development.', i: <IconBrain /> },
+                { s: '03', t: 'Deployment', d: 'Cloud or local edge integration.', i: <IconCloud /> },
+                { s: '04', t: 'Active Tuning', d: 'Continuous learning & bias correction.', i: <IconBot /> }
               ].map((step, i) => (
-                <div key={i} className="fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
-                  <div style={{ width: '50px', height: '50px', background: '#fff', border: '2px solid #007A3D', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: '900', color: '#007A3D', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
-                    <div style={{margin: '0 auto'}}>{step.s}</div>
-                  </div>
-                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2' }}>{step.t}</h4>
+                <div key={i} className="process-step fade-up" style={{ width: '22%', position: 'relative', zIndex: 2 }}>
+                  <div className="step-num">{step.s}</div>
+                  <h4 className="text-center" style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#034EA2', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                    <span style={{ color: '#007A3D' }}>{step.i}</span>
+                    {step.t}
+                  </h4>
                   <p className="text-center" style={{ fontSize: '13px', color: '#64748b' }}>{step.d}</p>
                 </div>
               ))}
