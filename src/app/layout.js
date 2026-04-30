@@ -11,6 +11,11 @@ export const metadata = {
   description: "DigNep is a premier global networking & IT infrastructure company offering cybersecurity, AI solutions, web development, cloud, and IT training services for modern enterprise environments.",
   keywords: "networking company, IT infrastructure, cybersecurity, AI solutions, web development, network setup, IT training, firewall, LAN WAN setup, DigNep, enterprise technology",
   authors: [{ name: "DigNep" }],
+  icons: {
+    icon: "/dignep-favicon.png",
+    shortcut: "/dignep-favicon.png",
+    apple: "/dignep-favicon.png",
+  },
   openGraph: {
     title: "DigNep - Premier Global Networking & IT Solutions",
     description: "Trusted global networking, cybersecurity, AI, and IT solutions provider. Serving enterprise businesses globally.",
