@@ -255,6 +255,53 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── ROADMAP / VISUAL SECTION ── */}
+        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
+          <div className="container">
+            <div className="grid-split-hero" style={{ alignItems: 'center', gap: '60px' }}>
+              <div className="fade-up" style={{ position: 'relative' }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  left: '-20px',
+                  width: '100%',
+                  height: '100%',
+                  background: 'var(--blue-light)',
+                  opacity: 0.1,
+                  borderRadius: '40px',
+                  zIndex: 0
+                }}></div>
+                <img 
+                  src="/server-rack.png" 
+                  alt="Enterprise Infrastructure & Network" 
+                  style={{ width: '100%', borderRadius: '40px', boxShadow: 'var(--shadow-lg)', position: 'relative', zIndex: 1 }} 
+                />
+              </div>
+              <div className="fade-up text-left">
+                <span className="section-tag" style={{ background: 'rgba(3, 78, 162, 0.1)', color: 'var(--blue)' }}>Scale Your Reach</span>
+                <h2 style={{ fontSize: '38px', fontWeight: '900', color: 'var(--navy-dark)', marginTop: '14px', marginBottom: '18px' }}>
+                  Enterprise <span className="highlight">Infrastructure</span> Architecture
+                </h2>
+                <p style={{ color: 'var(--text-body)', fontSize: '17px', lineHeight: '1.8', marginBottom: '28px' }}>
+                  We engineer top-tier computing architectures and resilient network environments. Our solutions empower enterprises to expand operational capacities, secure complex ecosystems, and unlock reliable scalability.
+                </p>
+                <div style={{ display: 'grid', gap: '16px' }}>
+                  {[
+                    "Next-generation high-density server rack engineering.",
+                    "Advanced networking systems for global low-latency nodes.",
+                    "End-to-end data center deployment and disaster recovery."
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                      <span style={{ width: '28px', height: '28px', background: 'rgba(20, 184, 166, 0.12)', color: 'var(--green)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px', flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: '16px', color: 'var(--navy-dark)', fontWeight: '600' }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/*  WHY CHOOSE US  */}
         <section className="why-section">
           <div className="container">
@@ -309,6 +356,53 @@ export default function Home() {
                   <div className="metric-num">10<span>+</span></div>
                   <div className="metric-label">Specialized Services</div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECURITY & CYBER NETWORK SECTION ── */}
+        <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+          <div className="container">
+            <div className="grid-split-hero" style={{ alignItems: 'center', gap: '60px' }}>
+              <div className="fade-up text-left">
+                <span className="section-tag" style={{ background: 'rgba(238, 49, 36, 0.1)', color: 'var(--blue)' }}>Defend Your Ecosystem</span>
+                <h2 style={{ fontSize: '38px', fontWeight: '900', color: 'var(--navy-dark)', marginTop: '14px', marginBottom: '18px' }}>
+                  Enterprise <span className="highlight">Cyber Security</span> & NOC
+                </h2>
+                <p style={{ color: 'var(--text-body)', fontSize: '17px', lineHeight: '1.8', marginBottom: '28px' }}>
+                  Shield your mission-critical data nodes against complex threats. We design Zero-Trust access perimeters and deploy around-the-clock SOC/NOC visibility to guarantee continuous performance.
+                </p>
+                <div style={{ display: 'grid', gap: '16px' }}>
+                  {[
+                    "Zero-Trust edge defense and identity-aware security.",
+                    "Advanced next-generation firewall and intrusion mitigation.",
+                    "24/7/365 active monitoring with localized rapid incident response."
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                      <span style={{ width: '28px', height: '28px', background: 'rgba(20, 184, 166, 0.12)', color: 'var(--green)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px', flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: '16px', color: 'var(--navy-dark)', fontWeight: '600' }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="fade-up" style={{ position: 'relative' }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                  width: '100%',
+                  height: '100%',
+                  background: 'var(--blue-light)',
+                  opacity: 0.1,
+                  borderRadius: '40px',
+                  zIndex: 0
+                }}></div>
+                <img 
+                  src="/cyber-security.png" 
+                  alt="Enterprise Security Engineering" 
+                  style={{ width: '100%', borderRadius: '40px', boxShadow: 'var(--shadow-lg)', position: 'relative', zIndex: 1 }} 
+                />
               </div>
             </div>
           </div>
