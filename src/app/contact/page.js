@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Simplified Professional Vector Icons
 const IconLocation = () => (
@@ -13,6 +13,16 @@ const IconPhone = () => (
 );
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     const els = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
@@ -22,11 +32,45 @@ export default function ContactPage() {
     return () => observer.disconnect();
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/dignepaltechnologies@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+      if (data.success === "true" || data.success === true) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main style={{ background: '#fff', color: '#034EA2' }}>
       <div className="page active" id="page-contact">
         
-        {/* ── 1. ATTRACTIVE & VIBRANT HERO ── */}
+        {/* ── 1. HERO ── */}
         <section className="cn-hero sp-hero">
           <div className="sp-hero-bg-grid" />
           <div className="container sp-hero-inner grid-split-hero">
@@ -44,7 +88,7 @@ export default function ContactPage() {
               </p>
               
               <div className="hero-actions">
-                <a href="mailto:dignepaltechnologies@gmail.com" className="btn-primary">Start a Conversation</a>
+                <a href="#contact-section" className="btn-primary">Reach Out Now</a>
                 <a href="tel:9828031562" className="btn-secondary">Quick Call</a>
               </div>
             </div>
@@ -73,122 +117,178 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ── 2. VIBRANT CONTACT CARDS ── */}
-        <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+        {/* ── 2. TWO-COLUMN DETAILS & CONTACT FORM ── */}
+        <section id="contact-section" style={{ padding: '100px 0', background: 'var(--white)' }}>
           <div className="container">
-            <div className="grid-3-cols">
-              {[
-                { 
-                  t: 'Location', 
-                  d: 'Dhangadhi -04, Nepal', 
-                  i: <IconLocation />, 
-                  c: 'var(--blue)' 
-                },
-                { 
-                  t: 'Email Us', 
-                  d: 'dignepaltechnologies@gmail.com', 
-                  i: <IconEmail />, 
-                  c: 'var(--green)' 
-                },
-                { 
-                  t: 'Call Us', 
-                  d: '+977 9828031562', 
-                  i: <IconPhone />, 
-                  c: 'var(--navy)' 
-                }
-              ].map((card, i) => (
-                <div key={i} className="fade-up" style={{ 
-                  padding: '50px 40px', 
-                  background: 'var(--bg-navy)', 
-                  borderRadius: '32px', 
-                  textAlign: 'center',
-                  transition: 'all 0.3s ease',
-                  border: '1px solid rgba(15,23,42,0.06)'
-                }}>
-                  <div style={{ 
-                    width: '64px', 
-                    height: '64px', 
-                    background: '#fff', 
-                    borderRadius: '20px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
-                    margin: '0 auto 24px',
-                    color: card.c,
-                    boxShadow: 'var(--shadow-sm)'
-                  }}>{card.i}</div>
-                  <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px', color: 'var(--navy-dark)' }}>{card.t}</h3>
-                  <p style={{ color: 'var(--text-body)', fontWeight: '500' }}>{card.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── 3. MAP & DETAILS SECTION ── */}
-        <section style={{ padding: '100px 0', background: 'var(--bg-navy)' }}>
-          <div className="container">
-            <div className="grid-split-hero">
-              <div className="fade-up" style={{ 
-                height: '400px', 
-                background: 'var(--light-gray)', 
-                borderRadius: '40px', 
-                position: 'relative', 
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)'
-              }}>
-                {/* Visual Map Placeholder */}
-                <div style={{ 
-                  position: 'absolute', 
-                  inset: 0, 
-                  background: 'url("/cyber-security.png") center/cover', 
-                  opacity: 0.15,
-                  filter: 'grayscale(1) brightness(1.2)'
-                }}></div>
-                <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', color: 'var(--blue)', top: '50%', transform: 'translateY(-50%)' }}>
-                  <IconLocation />
-                  <div style={{ fontWeight: '900', marginTop: '10px', fontSize: '18px' }}>DHANGADHI, NEPAL</div>
-                </div>
-              </div>
+            <div className="grid-split-hero" style={{ gap: '60px', alignItems: 'start' }}>
               
-              <div className="fade-up text-left">
-                <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '32px' }}>Working <span className="highlight">Hours</span></h2>
-                <div style={{ display: 'grid', gap: '24px' }}>
+              {/* LEFT COLUMN: CONTACT DETAILS & HOURS */}
+              <div className="fade-up text-left" style={{ display: 'grid', gap: '40px' }}>
+                <div>
+                  <span className="section-tag why-tag mb-16">Connect Directly</span>
+                  <h2 style={{ fontSize: '38px', fontWeight: '900', color: 'var(--navy-dark)', marginTop: '8px' }}>Let’s Build Something <span className="highlight">Great.</span></h2>
+                  <p style={{ color: 'var(--text-body)', marginTop: '14px', fontSize: '17px', lineHeight: '1.7' }}>
+                    Need a dedicated partner for enterprise development? Our experts are here to turn complex software and network ideas into resilient, production-ready solutions.
+                  </p>
+                </div>
+
+                {/* Contact Cards Stacking */}
+                <div style={{ display: 'grid', gap: '20px' }}>
                   {[
-                    { d: 'Sun - Fri', h: '9:00 AM - 6:00 PM' },
-                    { d: 'Saturday', h: 'Strategic Support Only' },
-                    { d: 'NOC Status', h: '24/7 Monitoring' }
-                  ].map((row, i) => (
-                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid rgba(15,23,42,0.1)' }}>
-                      <span style={{ fontWeight: '700', fontSize: '17px', color: 'var(--navy-dark)' }}>{row.d}</span>
-                      <span style={{ color: 'var(--text-muted)' }}>{row.h}</span>
+                    { 
+                      t: 'Address & Location', 
+                      d: 'Dhangadhi -04, Nepal', 
+                      i: <IconLocation />, 
+                      c: 'var(--blue)' 
+                    },
+                    { 
+                      t: 'Direct Email', 
+                      d: 'dignepaltechnologies@gmail.com', 
+                      i: <IconEmail />, 
+                      c: 'var(--green)' 
+                    },
+                    { 
+                      t: 'Call or WhatsApp', 
+                      d: '+977 9828031562', 
+                      i: <IconPhone />, 
+                      c: 'var(--navy)' 
+                    }
+                  ].map((card, i) => (
+                    <div key={i} style={{ 
+                      padding: '24px', 
+                      background: 'var(--bg-navy)', 
+                      borderRadius: '20px', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '20px',
+                      border: '1px solid rgba(15,23,42,0.06)'
+                    }}>
+                      <div style={{ 
+                        width: '54px', 
+                        height: '54px', 
+                        background: '#fff', 
+                        borderRadius: '14px', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center', 
+                        color: card.c,
+                        boxShadow: 'var(--shadow-sm)',
+                        flexShrink: 0
+                      }}>{card.i}</div>
+                      <div>
+                        <h3 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '4px' }}>{card.t}</h3>
+                        <p style={{ color: 'var(--text-body)', fontWeight: '600', fontSize: '16px' }}>{card.d}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* ── 4. CALL TO ACTION ── */}
-        <section className="cta-section" style={{ padding: '120px 0' }}>
-          <div className="container">
-            <div className="cta-inner" style={{ 
-              background: 'var(--navy)', 
-              borderRadius: '60px', 
-              padding: '100px 40px', 
-              color: '#fff'
-            }}>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', marginBottom: '24px', color: '#fff' }}>Ready to Scale?</h2>
-              <p style={{ fontSize: '20px', opacity: 0.8, marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px' }}>
-                Join hundreds of businesses that trust DigNep for their mission-critical IT infrastructure.
-              </p>
-              <a href="mailto:dignepaltechnologies@gmail.com" className="btn-primary" style={{ 
-                background: '#fff', 
-                color: 'var(--navy)', 
-                padding: '20px 60px', 
-                borderRadius: '100px'
-              }}>Contact Us Now →</a>
+                {/* Working Hours */}
+                <div style={{ padding: '32px', background: 'var(--bg-navy)', borderRadius: '24px', border: '1px solid rgba(15,23,42,0.05)' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '18px' }}>Working Hours</h3>
+                  <div style={{ display: 'grid', gap: '14px' }}>
+                    {[
+                      { d: 'Sun - Fri', h: '9:00 AM - 6:00 PM' },
+                      { d: 'Saturday', h: 'Strategic Support Only' },
+                      { d: 'NOC Status', h: '24/7 Monitoring' }
+                    ].map((row, i) => (
+                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid rgba(15,23,42,0.08)' }}>
+                        <span style={{ fontWeight: '700', color: 'var(--navy-dark)', fontSize: '15px' }}>{row.d}</span>
+                        <span style={{ color: 'var(--text-muted)', fontSize: '15px' }}>{row.h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN: CONTACT FORM */}
+              <div className="fade-up" style={{ background: '#fff', padding: '40px', borderRadius: '32px', boxShadow: '0 20px 80px -20px rgba(3, 78, 162, 0.1)', border: '1px solid rgba(15,23,42,0.06)', width: '100%' }}>
+                <div style={{ marginBottom: '32px' }}>
+                  <h2 style={{ fontSize: '28px', fontWeight: '900', color: 'var(--navy-dark)' }}>Send Us a <span className="highlight">Message</span></h2>
+                  <p style={{ color: 'var(--text-body)', marginTop: '8px', fontSize: '15px', fontWeight: '500' }}>We typically respond within a few business hours.</p>
+                </div>
+
+                <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '20px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: '700', fontSize: '13px', color: 'var(--navy-dark)' }} htmlFor="name">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      style={{ width: '100%', padding: '14px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.12)', background: '#fff', fontSize: '15px', outline: 'none' }}
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: '700', fontSize: '13px', color: 'var(--navy-dark)' }} htmlFor="email">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      style={{ width: '100%', padding: '14px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.12)', background: '#fff', fontSize: '15px', outline: 'none' }}
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: '700', fontSize: '13px', color: 'var(--navy-dark)' }} htmlFor="subject">Subject</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      style={{ width: '100%', padding: '14px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.12)', background: '#fff', fontSize: '15px', outline: 'none' }}
+                      placeholder="Project Inquiry"
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: '700', fontSize: '13px', color: 'var(--navy-dark)' }} htmlFor="message">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      style={{ width: '100%', padding: '14px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.12)', background: '#fff', fontSize: '15px', outline: 'none', resize: 'vertical' }}
+                      placeholder="Tell us about your project..."
+                    ></textarea>
+                  </div>
+
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-primary"
+                      style={{ width: '100%', padding: '16px', borderRadius: '10px', fontWeight: '800', cursor: isSubmitting ? 'not-allowed' : 'pointer', border: 'none', textAlign: 'center', transition: 'all 0.3s ease' }}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message →'}
+                    </button>
+                  </div>
+
+                  {status === 'success' && (
+                    <div style={{ background: '#ecfdf5', color: '#065f46', border: '1px solid #10b981', padding: '14px', borderRadius: '10px', fontWeight: '700', textAlign: 'center', marginTop: '12px', fontSize: '14px' }}>
+                      Thank you! Your message has been sent successfully. We will get back to you shortly.
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div style={{ background: '#fef2f2', color: '#991b1b', border: '1px solid #ef4444', padding: '14px', borderRadius: '10px', fontWeight: '700', textAlign: 'center', marginTop: '12px', fontSize: '14px' }}>
+                      Oops! Something went wrong while sending your message. Please try again later.
+                    </div>
+                  )}
+                </form>
+              </div>
+
             </div>
           </div>
         </section>

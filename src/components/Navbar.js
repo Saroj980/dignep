@@ -79,7 +79,7 @@ export default function Navbar() {
                         </ul>
                       </div>
                       <div className="mega-col">
-                        <h4>Digital Solutions</h4>
+                        <h4>Digital Solution & Cybersecurity</h4>
                         <ul>
                           <li>
                             <Link href="/services/ai">
@@ -104,6 +104,33 @@ export default function Navbar() {
                             </Link>
                           </li>
                           <li>
+                            <Link href="/services/social-media-marketing">
+                              <span className="mega-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                              </span>
+                              <div className="mega-text">
+                                <span className="mega-title">Social Media Marketing</span>
+                                <span className="mega-desc">Targeted digital visibility campaigns.</span>
+                              </div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/services/seo">
+                              <span className="mega-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                              </span>
+                              <div className="mega-text">
+                                <span className="mega-title">SEO & Growth</span>
+                                <span className="mega-desc">Rank higher and drive qualified leads.</span>
+                              </div>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="mega-col">
+                        <h4>Software & Automation</h4>
+                        <ul>
+                          <li>
                             <Link href="/services/software">
                               <span className="mega-icon-box">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -111,6 +138,39 @@ export default function Navbar() {
                               <div className="mega-text">
                                 <span className="mega-title">Software Engineering</span>
                                 <span className="mega-desc">Custom enterprise application dev.</span>
+                              </div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/services/software-development">
+                              <span className="mega-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                              </span>
+                              <div className="mega-text">
+                                <span className="mega-title">Custom Software Development</span>
+                                <span className="mega-desc">Robust bespoke software solutions.</span>
+                              </div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/services/automation">
+                              <span className="mega-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                              </span>
+                              <div className="mega-text">
+                                <span className="mega-title">DevOps & Automation</span>
+                                <span className="mega-desc">Optimized CI/CD & cloud workflows.</span>
+                              </div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/services/mobile-app">
+                              <span className="mega-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+                              </span>
+                              <div className="mega-text">
+                                <span className="mega-title">Mobile App Development</span>
+                                <span className="mega-desc">High performance native & hybrid apps.</span>
                               </div>
                             </Link>
                           </li>
@@ -158,7 +218,12 @@ export default function Navbar() {
                  <Link href="/services/security" onClick={() => setMenuOpen(false)}>Cyber Security</Link>
                  <Link href="/services/ai" onClick={() => setMenuOpen(false)}>AI & ML</Link>
                  <Link href="/services/cloud" onClick={() => setMenuOpen(false)}>Cloud Computing</Link>
+                 <Link href="/services/social-media-marketing" onClick={() => setMenuOpen(false)}>Marketing</Link>
+                 <Link href="/services/seo" onClick={() => setMenuOpen(false)}>SEO & Growth</Link>
                  <Link href="/services/software" onClick={() => setMenuOpen(false)}>Software Engineering</Link>
+                 <Link href="/services/software-development" onClick={() => setMenuOpen(false)}>Software Development</Link>
+                 <Link href="/services/automation" onClick={() => setMenuOpen(false)}>DevOps & Automation</Link>
+                 <Link href="/services/mobile-app" onClick={() => setMenuOpen(false)}>Mobile App Development</Link>
                </div>
             </div>
             <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>

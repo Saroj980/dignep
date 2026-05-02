@@ -1,7 +1,29 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2400&q=100",
+      badge: "Tier-Certified DC Specialists",
+      title: <>Powering <span className="highlight">Enterprise</span><br />Infrastructure</>,
+      desc: "DigNep delivers enterprise-level IT infrastructure solutions, high-performance server hubs, and guaranteed network uptime."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2400&q=100",
+      badge: "AI & High-Density Compute",
+      title: <>Advanced <span className="highlight">Intelligent</span><br />Data Analytics</>,
+      desc: "Scale AI workloads and predictive cloud processing with custom neural-network edge systems."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=2400&q=100",
+      badge: "Global Strategic Networking",
+      title: <>Connecting <span className="highlight">Global</span><br />Enterprise Nodes</>,
+      desc: "Deploy highly redundant multi-cloud networking architectures for absolute operational resilience."
+    }
+  ];
+
   useEffect(() => {
     // Basic Intersection Observer for scroll animations
     const els = document.querySelectorAll('.fade-up');
@@ -13,67 +35,79 @@ export default function Home() {
     els.forEach(el => observer.observe(el));
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = slides[activeSlide];
+
   return (
     <main>
       <div className="page active" id="page-home">
         {/*  HERO  */}
         <section className="hero">
-          <div className="hero-bg-grid"></div>
-          <div className="hero-orb-1"></div>
-          <div className="hero-orb-2"></div>
+          <div className="hero-slider">
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className={`hero-slide ${i === activeSlide ? "active" : ""}`}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundImage: `url('${slide.url}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  opacity: i === activeSlide ? 1 : 0,
+                  transition: "opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                  zIndex: 1,
+                  pointerEvents: "none"
+                }}
+              ></div>
+            ))}
+          </div>
+          <div className="hero-video-overlay" style={{
+            position: "absolute",
+            inset: 0,
+            background: "radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.18), transparent 60%), linear-gradient(135deg, rgba(3, 30, 60, 0.75) 0%, rgba(1, 15, 30, 0.88) 100%)",
+            zIndex: 2,
+            pointerEvents: "none"
+          }}></div>
 
-          <div className="hero-content">
-            <div className="hero-text">
-              <div className="hero-badge">
-                <span className="dot"></span>
-                Enterprise Critical Infrastructure Specialist
-              </div>
-              <h1 className="hero-title">
-                Powering <span className="highlight">Enterprise Critical</span><br />
-                Data Centre<br />
-                <span className="highlight-blue">Infrastructure</span>
-              </h1>
-              <p className="hero-desc">
-                DigNep delivers Tier-certified data centre design, high-density server hubs, and enterprise networking solutions. We build and maintain the high-performance backbone for global enterprise organizations.
-              </p>
-              <div className="hero-actions">
-                <a href="/services" className="btn-primary">
-                  Our Hub Solutions →
-                </a>
-                <a href="/contact" className="btn-secondary">
-                  Get Free Consultation
-                </a>
-              </div>
-              <div className="hero-stats">
-                <div className="stat-item">
-                  <div className="stat-num">10<span>+</span></div>
-                  <div className="stat-label">DC Engineering</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-num">500<span>+</span></div>
-                  <div className="stat-label">Hubs Deployed</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-num">99<span>%</span></div>
-                  <div className="stat-label">Guaranteed Uptime</div>
-                </div>
-              </div>
+          <div className="hero-content" key={activeSlide}>
+            <div className="hero-badge">
+              <span className="dot"></span>
+              {current.badge}
             </div>
-
-            <div className="hero-visual fade-up">
-              <div className="data-centre-frame">
-                <img src="/hero-data-centre.png" alt="Enterprise Data Centre" className="hero-data-img" />
-                <div className="img-overlay"></div>
-                <div className="data-stats-overlay">
-                  <div className="data-stat">
-                    <span className="label">Uptime</span>
-                    <span className="value">99.99%</span>
-                  </div>
-                  <div className="data-stat">
-                    <span className="label">Security</span>
-                    <span className="value">Tier IV</span>
-                  </div>
-                </div>
+            <h1 className="hero-title">
+              {current.title}
+            </h1>
+            <p className="hero-desc">
+              {current.desc}
+            </p>
+            <div className="hero-actions">
+              <a href="/services" className="btn-primary">
+                Our Hub Solutions →
+              </a>
+              <a href="/contact" className="btn-secondary">
+                Get Free Consultation
+              </a>
+            </div>
+            <div className="hero-stats">
+              <div className="stat-item">
+                <div className="stat-num">10<span>+</span></div>
+                <div className="stat-label">DC Engineering</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-num">500<span>+</span></div>
+                <div className="stat-label">Hubs Deployed</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-num">99<span>%</span></div>
+                <div className="stat-label">Guaranteed Uptime</div>
               </div>
             </div>
           </div>
