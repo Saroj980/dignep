@@ -721,6 +721,16 @@ nav.vanished {
   object-fit: cover;
 }
 
+.sp-hero .hero-actions {
+  justify-content: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .sp-hero .hero-actions {
+    justify-content: center;
+  }
+}
+
 .sp-metrics-bar {
   background: var(--white);
   padding: 40px 0;
@@ -1169,7 +1179,9 @@ section {
 }
 
 .section-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(39,127,196,0.1);
   color: var(--blue);
   padding: 4px 14px;

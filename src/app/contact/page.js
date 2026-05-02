@@ -87,7 +87,7 @@ export default function ContactPage() {
                 Have a question or a project in mind? Our team of enterprise architects and engineers is ready to provide the technical guidance you need.
               </p>
               
-              <div className="hero-actions">
+              <div className="hero-actions" style={{ justifyContent: 'flex-start' }}>
                 <a href="#contact-section" className="btn-primary">Reach Out Now</a>
                 <a href="tel:9828031562" className="btn-secondary">Quick Call</a>
               </div>

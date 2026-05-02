@@ -41,29 +41,33 @@ export default function TrainingPage() {
       <div className="page active" id="page-training">
         
         {/* ── 1. UNIQUE TRAINING HERO ── */}
-        <section className="tr-hero sp-hero" style={{ background: 'var(--navy)' }}>
-          <div className="sp-hero-bg-grid" style={{ opacity: 0.3 }} />
-          <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', background: 'var(--blue)', filter: 'blur(150px)', borderRadius: '50%', opacity: 0.2 }}></div>
+        <section className="tr-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
           
-          <div className="container sp-hero-inner">
-            <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-              <div className="section-tag why-tag mb-16" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}>
-                <span style={{ marginRight: '8px' }}><IconAcademy /></span> Elite Engineering Academy
+          <div className="container sp-hero-inner grid-split-hero">
+            <div className="fade-up text-left">
+              <div className="section-tag why-tag mb-16" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ display: 'flex', color: 'var(--blue)' }}><IconAcademy /></span> Elite Engineering Academy
               </div>
-              <h1 className="sp-hero-title" style={{ color: '#fff' }}>
-                Master the <span style={{ color: 'var(--green)' }}>Infrastructure</span> <br />of the Future.
+              <h1 className="sp-hero-title">
+                Master the <span className="highlight">Infrastructure</span> <br />of the Future.
               </h1>
-              <p className="sp-hero-desc" style={{ color: 'rgba(255,255,255,0.8)', margin: '0 auto 40px' }}>
+              <p className="sp-hero-desc">
                 From Tier standards to High-Density networking, our training programs are designed by engineers for the next generation of infrastructure experts.
               </p>
-              <div className="hero-actions" style={{ justifyContent: 'center' }}>
-                <a href="#courses" className="btn-primary" style={{ background: 'var(--green)', color: 'var(--navy)' }}>Explore Programs ↓</a>
+              <div className="hero-actions">
+                <a href="#courses" className="btn-primary">Explore Programs ↓</a>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <div style={{ display: 'flex' }}>
-                    {[1,2,3].map(i => <div key={i} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '2px solid var(--navy)', background: 'var(--light-gray)', marginLeft: i > 1 ? '-10px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: 'var(--navy)', fontWeight: '900' }}>{i}</div>)}
+                    {[1,2,3].map(i => <div key={i} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '2px solid var(--white)', background: 'var(--light-gray)', marginLeft: i > 1 ? '-10px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: 'var(--navy)', fontWeight: '900' }}>{i}</div>)}
                   </div>
-                  <span style={{ color: '#fff', fontSize: '14px', fontWeight: '600' }}>1,200+ Professionals Certified</span>
+                  <span style={{ color: 'var(--navy-dark)', fontSize: '14px', fontWeight: '600' }}>1,200+ Professionals Certified</span>
                 </div>
+              </div>
+            </div>
+            <div className="fade-in-right sp-hero-visual">
+              <div className="sp-hero-img-frame">
+                <img src="/web-dev-workspace.png" alt="Training Lab" className="sp-hero-img" />
               </div>
             </div>
           </div>

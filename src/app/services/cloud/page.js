@@ -35,10 +35,10 @@ export default function CloudServicePage() {
         {/* ── 1. SKY HERO ── */}
         <section className="cl-hero sp-hero">
           <div className="sp-hero-bg-grid" />
-          <div className="container sp-hero-inner">
-            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              <div className="section-tag why-tag mb-16">
-                <IconCloud /> Multi-Cloud Architecture
+          <div className="container sp-hero-inner grid-split-hero">
+            <div className="fade-up text-left">
+              <div className="section-tag why-tag mb-16" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ display: 'flex' }}><IconCloud /></span> Multi-Cloud Architecture
               </div>
               <h1 className="sp-hero-title">
                 Infinite <span className="highlight">Scale.</span> <br />Seamless Migration.
@@ -46,9 +46,14 @@ export default function CloudServicePage() {
               <p className="sp-hero-desc">
                 We help enterprises transition from legacy hardware to flexible, secure, and cost-optimized cloud environments on AWS, Azure, and Google Cloud.
               </p>
-              <div className="hero-actions" style={{ justifyContent: 'center' }}>
+              <div className="hero-actions">
                 <Link href="/contact" className="btn-primary">Consult Cloud Architect →</Link>
                 <Link href="/services" className="btn-secondary">Migration Roadmaps</Link>
+              </div>
+            </div>
+            <div className="fade-in-right sp-hero-visual">
+              <div className="sp-hero-img-frame">
+                <img src="/ai-data-hub.png" alt="Cloud Infrastructure" className="sp-hero-img" />
               </div>
             </div>
           </div>

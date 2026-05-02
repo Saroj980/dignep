@@ -33,24 +33,28 @@ export default function SecurityServicePage() {
       <div className="page active" id="page-service-security">
         
         {/* ── 1. FORTRESS HERO ── */}
-        <section className="sec-hero sp-hero" style={{ background: 'var(--navy)' }}>
-          <div className="sp-hero-bg-grid" style={{ opacity: 0.1 }} />
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 80%)' }}></div>
+        <section className="sec-hero sp-hero">
+          <div className="sp-hero-bg-grid" />
           
-          <div className="container sp-hero-inner">
-            <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
-              <div className="section-tag why-tag mb-16" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}>
-                <span style={{ color: 'var(--blue)' }}><IconShield /></span> Zero-Trust Architecture
+          <div className="container sp-hero-inner grid-split-hero">
+            <div className="fade-up text-left">
+              <div className="section-tag why-tag mb-16" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ color: 'var(--blue)', display: 'flex' }}><IconShield /></span> Zero-Trust Architecture
               </div>
-              <h1 className="sp-hero-title" style={{ color: '#fff' }}>
+              <h1 className="sp-hero-title">
                 Defend the <br /><span className="highlight">Digital Perimeter.</span>
               </h1>
-              <p className="sp-hero-desc" style={{ color: 'rgba(255,255,255,0.7)', margin: '0 auto 40px' }}>
+              <p className="sp-hero-desc">
                 Enterprise security isn't about building higher walls—it's about deeper visibility. We provide 24/7 SOC services and hardware-level encryption.
               </p>
-              <div className="hero-actions" style={{ justifyContent: 'center' }}>
+              <div className="hero-actions">
                 <Link href="/contact" className="btn-primary">Start Security Audit →</Link>
-                <Link href="/services" className="btn-secondary" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>Our Frameworks</Link>
+                <Link href="/services" className="btn-secondary">Our Frameworks</Link>
+              </div>
+            </div>
+            <div className="fade-in-right sp-hero-visual">
+              <div className="sp-hero-img-frame">
+                <img src="/cyber-security.png" alt="Security SOC" className="sp-hero-img" />
               </div>
             </div>
           </div>
