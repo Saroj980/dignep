@@ -181,7 +181,57 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-            <Link href="/about" className={isActive('/about') ? 'active' : ''}>About</Link>
+            <div className="nav-item-dropdown relative">
+              <Link href="/about" className={isActive('/about') || pathname.startsWith('/about') ? 'active' : ''}>
+                About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </Link>
+              <div className="about-dropdown">
+                <div className="mega-menu-inner">
+                  <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <li>
+                      <Link href="/about/company" style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.3s ease' }} onClick={() => setMenuOpen(false)}>
+                        <span className="mega-icon-box" style={{ width: '32px', height: '32px' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </span>
+                        <div className="mega-text">
+                          <span className="mega-title" style={{ fontSize: '13px', margin: 0 }}>About Company</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about/mission-vision" style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.3s ease' }} onClick={() => setMenuOpen(false)}>
+                        <span className="mega-icon-box" style={{ width: '32px', height: '32px' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </span>
+                        <div className="mega-text">
+                          <span className="mega-title" style={{ fontSize: '13px', margin: 0 }}>Mission & Vision</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about/team" style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.3s ease' }} onClick={() => setMenuOpen(false)}>
+                        <span className="mega-icon-box" style={{ width: '32px', height: '32px' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </span>
+                        <div className="mega-text">
+                          <span className="mega-title" style={{ fontSize: '13px', margin: 0 }}>Our Team</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about/career" style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.3s ease' }} onClick={() => setMenuOpen(false)}>
+                        <span className="mega-icon-box" style={{ width: '32px', height: '32px' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </span>
+                        <div className="mega-text">
+                          <span className="mega-title" style={{ fontSize: '13px', margin: 0 }}>Careers</span>
+                        </div>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <Link href="/" className="nav-logo">
@@ -226,7 +276,15 @@ export default function Navbar() {
                  <Link href="/services/mobile-app" onClick={() => setMenuOpen(false)}>Mobile App Development</Link>
                </div>
             </div>
-            <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+            <div className="mobile-dropdown-section">
+               <span className="mobile-link-header">About Us</span>
+               <div className="mobile-sublinks">
+                 <Link href="/about/company" onClick={() => setMenuOpen(false)}>About Company</Link>
+                 <Link href="/about/mission-vision" onClick={() => setMenuOpen(false)}>Mission & Vision</Link>
+                 <Link href="/about/team" onClick={() => setMenuOpen(false)}>Our Team</Link>
+                 <Link href="/about/career" onClick={() => setMenuOpen(false)}>Careers</Link>
+               </div>
+            </div>
             <Link href="/training" onClick={() => setMenuOpen(false)}>Training</Link>
             <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
           </div>
