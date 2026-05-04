@@ -15,6 +15,7 @@ export default function Footer() {
           <ul>
             <li><a href="/services/networking">Networking & IT</a></li>
             <li><a href="/services/security">Cyber Security</a></li>
+            <li><a href="/services/soc-noc">SOC & NOC Services</a></li>
             <li><a href="/services/ai">AI & Machine Learning</a></li>
           </ul>
         </div>

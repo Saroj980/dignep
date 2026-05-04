@@ -31,6 +31,7 @@ const IconZap = () => (
 const services = [
   { icon: <IconNetwork />, title: 'Network Infrastructure', desc: 'Designing scalable and resilient network architectures for enterprise demands.', href: '/services/networking' },
   { icon: <IconSecurity />, title: 'Cybersecurity', desc: 'Advanced protection against modern cyber threats and intrusions.', href: '/services/security' },
+  { icon: <IconSettings />, title: 'SOC & NOC Services', desc: 'Continuous 24/7/365 active operations, threat prevention, and proactive network monitoring.', href: '/services/soc-noc' },
   { icon: <IconCloud />, title: 'Cloud Networking', desc: 'Secure and flexible cloud integration and migration solutions.', href: '/services/cloud' },
   { icon: <IconData />, title: 'Data Engineering', desc: 'Transforming raw data into actionable enterprise insights.', href: '/services/data-center' },
   { icon: <IconSettings />, title: 'IT Management', desc: 'Proactive monitoring, maintenance, and managed IT services.', href: '/services' },
@@ -74,6 +75,17 @@ const detailedServices = [
     reverse: false,
   },
   {
+    tag: 'Continuous Operations',
+    icon: <IconSettings />,
+    title: 'SOC & NOC Services',
+    desc: 'We merge complete Security Operations Center (SOC) and Network Operations Center (NOC) functions to establish a real-time command, control, and response perimeter for both digital and physical infrastructure.',
+    features: ['24/7/365 continuous network telemetry', 'Security Incident & Event Management (SIEM)', 'Proactive threat hunting & active forensics', 'Automated incident escalation & patching'],
+    img: '/web-dev-workspace.png',
+    imgAlt: 'SOC & NOC Operations',
+    imgLabel: 'Operations Command',
+    reverse: true,
+  },
+  {
     tag: 'Command & Control',
     icon: <IconSettings />,
     title: 'Operations Center (OCC) Dashboards',
@@ -82,7 +94,7 @@ const detailedServices = [
     img: '/web-dev-workspace.png',
     imgAlt: 'OCC Dashboard',
     imgLabel: 'Monitoring & Control',
-    reverse: true,
+    reverse: false,
   },
   {
     tag: 'Remote Management',
@@ -93,7 +105,7 @@ const detailedServices = [
     img: '/mobile-app-studio.png',
     imgAlt: 'Mobile NOC App',
     imgLabel: 'Mobile Operations',
-    reverse: false,
+    reverse: true,
   },
 ];
 
