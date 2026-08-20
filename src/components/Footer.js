@@ -38,7 +38,8 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/privacy?tab=dignep">DigNep Privacy</a></li>
+            <li><a href="/privacy?tab=medx">MedX Privacy Policy</a></li>
             <li><a href="/terms">Terms of Service</a></li>
             <div className="social-links-minimal">
                <a href="#" aria-label="LinkedIn">
